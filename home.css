@@ -1,0 +1,235 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url('https://fonts.googleapis.com/css?family=Segoe+UI:400');
+.bar-none-citations {
+  background-color: transparent;
+  color: var(--alto);
+  font-size: 30px;
+  height: 42px;
+  line-height: 30px;
+  position: absolute;
+  right: 36px;
+  text-align: left;
+  top: 12px;
+  white-space: nowrap;
+  width: 250px;
+}
+.border-class-1 {
+  border: 1px solid var(--dove-gray);
+}
+.case {
+  background-color: transparent;
+  color: black;
+  font-size: 22px;
+  height: calc(100.00% - 3px);
+  line-height: 22px;
+  position: absolute;
+  right: calc(46.15% - 22px);
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 48px;
+}
+.case-G7f1vZ {
+  background-color: transparent;
+  color: black;
+  font-size: 22px;
+  height: calc(100.00% - 3px);
+  left: 9px;
+  line-height: 22px;
+  position: absolute;
+  text-align: left;
+  top: 4px;
+  white-space: nowrap;
+  width: 48px;
+}
+.component-1-1 {
+  background-color: transparent;
+  height: 33px;
+  left: 37px;
+  position: absolute;
+  top: calc(22.76% - 8px);
+  width: 211px;
+}
+.enter-case-tatue-name {
+  background-color: transparent;
+  color: var(--stack);
+  font-size: 16px;
+  height: 23px;
+  left: 48px;
+  line-height: 16px;
+  position: absolute;
+  text-align: left;
+  top: calc(23.95% - 6px);
+  white-space: nowrap;
+  width: 184px;
+}
+.font-class-1 {
+  font-family: 'Segoe UI', Helvetica, Arial, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.group-10 {
+  background-color: transparent;
+  height: 35px;
+  position: absolute;
+  right: 40px;
+  top: 62px;
+  width: 87px;
+}
+.group-17 {
+  background-color: transparent;
+  flex-shrink: 0;
+  height: 547px;
+  margin-top: 21px;
+  position: relative;
+  width: 382px;
+}
+.group-3 {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 100%;
+}
+.group-4 {
+  background-color: transparent;
+  height: 35px;
+  position: absolute;
+  right: calc(47.24% - 43px);
+  top: 62px;
+  width: 92px;
+}
+.group-9 {
+  background-color: transparent;
+  height: 35px;
+  left: 56px;
+  position: absolute;
+  top: 62px;
+  width: 87px;
+}
+.legal-icon {
+  background-color: transparent;
+  height: 62px;
+  left: 22px;
+  position: absolute;
+  top: 0px;
+  width: 65px;
+}
+.path-1 {
+  background-color: transparent;
+  height: calc(100.00% + 18px);
+  left: -9px;
+  position: absolute;
+  top: -6px;
+  width: calc(100.00% + 18px);
+}
+.rectangle-2 {
+  background-color: white;
+  border-radius: 17px;
+  height: calc(100.00% - 10px);
+  left: 0px;
+  position: absolute;
+  top: 5px;
+  width: calc(100.00% - 12px);
+}
+.rectangle-2-7QyA8p {
+  background-color: white;
+  border-radius: 17px;
+  height: calc(100.00% - 10px);
+  left: 0px;
+  position: absolute;
+  top: 5px;
+  width: calc(100.00% - 7px);
+}
+.rectangle-3 {
+  background-color: var(--pink-swan);
+  border-radius: 17px;
+  height: calc(100.00% - 1px);
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 100%;
+}
+.rectangle-4 {
+  background-color: white;
+  height: calc(100.00% - 173px);
+  left: 0px;
+  position: absolute;
+  top: 173px;
+  width: 100%;
+}
+.rectangle-6 {
+  background-color: transparent;
+  height: 51px;
+  position: absolute;
+  right: 34px;
+  top: calc(22.38% - 11px);
+  width: 97px;
+}
+.rectangle-9 {
+  background-color: white;
+  bottom: 37px;
+  height: 294px;
+  left: 22px;
+  position: absolute;
+  width: calc(100.00% - 52px);
+}
+.rules {
+  background-color: transparent;
+  color: black;
+  font-size: 22px;
+  height: calc(100.00% - 3px);
+  line-height: 22px;
+  position: absolute;
+  right: calc(36.36% - 20px);
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 54px;
+}
+.search {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  height: 23px;
+  line-height: 16px;
+  position: absolute;
+  right: calc(17.12% - 8px);
+  text-align: left;
+  top: calc(23.95% - 6px);
+  white-space: nowrap;
+  width: 49px;
+}
+.search-results {
+  background-color: transparent;
+  color: black;
+  font-size: 15px;
+  height: 22px;
+  left: 17px;
+  line-height: 15px;
+  position: absolute;
+  text-align: left;
+  top: calc(36.10% - 8px);
+  white-space: nowrap;
+  width: 100px;
+}
+.statute {
+  background-color: transparent;
+  color: black;
+  font-size: 22px;
+  height: calc(100.00% - 3px);
+  left: 13px;
+  line-height: 22px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: calc(100.00% - 22px);
+}
+:root {
+  --alto: rgba(226,218,218,1.0);
+  --dove-gray: rgba(112,112,112,1.0);
+  --pink-swan: rgba(187,187,187,1.0);
+  --stack: rgba(138,138,138,1.0);
+}
