@@ -315,3 +315,7 @@
   height: 568px;
   width: 382px;
 }
+.header-rectangle {
+    --dove-gray: rgba(112,112,112,1.0);
+    --mahogany: rgba(80,0,0,1.0);
+  }
