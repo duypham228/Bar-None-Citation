@@ -318,9 +318,9 @@
   height: 40px;
   width: 382px;
 }
-
 .dropdown {
   display: inline-block;
+  border: none;
 }
 .dd-btn {
   background-color: transparent;
