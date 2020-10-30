@@ -53,7 +53,7 @@
   white-space: nowrap;
   width: 104px;
 }
-.ellipse-1 {
+.us-ellipse {
   background-color: transparent;
   bottom: calc(38.05% - 5px);
   height: 13px;
@@ -61,7 +61,7 @@
   position: absolute;
   width: 13px;
 }
-.ellipse-2 {
+.sct-ellipse {
   background-color: transparent;
   bottom: calc(38.05% - 5px);
   height: 13px;
@@ -69,12 +69,12 @@
   position: absolute;
   width: 13px;
 }
-.ellipse-3 {
+.le2d-ellipse {
   background-color: transparent;
   bottom: calc(38.05% - 5px);
   height: 13px;
   position: absolute;
-  right: calc(47.55% - 6px);
+  right: calc(47.55% - 13px);
   width: 13px;
 }
 .font-class-1 {
@@ -83,7 +83,6 @@
   font-weight: 400;
 }
 .generate-citation {
-  background-color: transparent;
   bottom: calc(24.10% - 6px);
   color: white;
   font-size: 16px;
@@ -110,7 +109,7 @@
   right: 16px;
   width: 8px;
 }
-.group-7 {
+.ddMenu {
   background-color: var(--concrete);
   border: 1px solid var(--dove-gray);
   height: 35px;
@@ -178,11 +177,10 @@
   background-color: transparent;
   bottom: 0px;
   height: 9px;
-  left: 1px;
   position: absolute;
   width: 100%;
 }
-.rectangle-13 {
+.volume-TB {
   background-color: white;
   height: 31px;
   left: calc(25.52% - 19px);
@@ -190,7 +188,7 @@
   top: calc(35.25% - 11px);
   width: 74px;
 }
-.rectangle-14 {
+.year-TB{
   background-color: white;
   height: 31px;
   left: calc(25.78% - 19px);
@@ -198,23 +196,23 @@
   top: calc(45.62% - 14px);
   width: 73px;
 }
-.rectangle-15 {
-  background-color: transparent;
+.submit-rectangle {
+  background-color: blue;
   bottom: calc(22.46% - 11px);
-  height: 51px;
+  height: 45px;
   position: absolute;
-  right: calc(49.18% - 87px);
-  width: 177px;
+  right: calc(49.18% - 45px);
+  width: 145px;
 }
-.rectangle-7 {
+.name-TB {
   background-color: white;
   height: 31px;
   position: absolute;
-  right: 20px;
+  right: 23px;
   top: calc(24.88% - 8px);
   width: 267px;
 }
-.rectangle-8 {
+.page-TB {
   background-color: white;
   height: 31px;
   position: absolute;
@@ -235,16 +233,15 @@
   white-space: nowrap;
   width: 28px;
 }
-.style-supreme-court {
+.court-style {
   background-color: transparent;
   color: black;
   font-size: 16px;
   height: calc(100.00% + 2px);
-  left: 0px;
+  left: 10px;
   line-height: 16px;
   position: absolute;
   text-align: left;
-  top: 2px;
   white-space: nowrap;
   width: calc(100.00% + 2px);
 }
@@ -303,6 +300,7 @@
 :root {
   --alto: rgba(226,218,218,1.0);
   --concrete: rgba(242,242,242,1.0);
+  --mahogany: rgba(80,0,0,1.0);
   --dove-gray: rgba(112,112,112,1.0);
 }
 
@@ -310,12 +308,40 @@
   border: 1px solid var(--dove-gray);
 }
 .rectangle-1 {
-  background-color: var(--mahogany);
   flex-shrink: 0;
   height: 568px;
   width: 382px;
 }
-.header-rectangle {
-    --dove-gray: rgba(112,112,112,1.0);
-    --mahogany: rgba(80,0,0,1.0);
-  }
+.headerRectangle {
+  background-color: var(--mahogany);
+  flex-shrink: 0;
+  height: 40px;
+  width: 382px;
+}
+
+.dropdown {
+  display: inline-block;
+}
+.dd-btn {
+  background-color: transparent;
+  color: black;
+  font-size: 16px;
+  border: none;
+}
+.dd-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: calc(100.00% - 30px);
+  top: 34px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dd-content a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dd-content a:hover {background-color: #ddd;}
+.dropdown:hover .dd-content {display: block;}
