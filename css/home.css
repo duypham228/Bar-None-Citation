@@ -16,7 +16,7 @@
 .border-class-1 {
   border: 1px solid var(--dove-gray);
 }
-.case {
+.header-button-text {
   background-color: transparent;
   color: black;
   font-size: 22px;
@@ -76,7 +76,7 @@
   top: 62px;
   width: 87px;
 }
-.group-17 {
+.header {
   background-color: maroon;
   flex-shrink: 0;
   height: 547px;
@@ -142,7 +142,7 @@
   top: 5px;
   width: calc(100.00% - 7px);
 }
-.rectangle-3 {
+.header-buttons {
   background-color: var(--pink-swan);
   border-radius: 17px;
   height: calc(100.00% - 1px);
