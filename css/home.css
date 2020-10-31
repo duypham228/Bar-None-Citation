@@ -29,19 +29,6 @@
   white-space: nowrap;
   width: 48px;
 }
-.case-G7f1vZ {
-  background-color: transparent;
-  color: black;
-  font-size: 22px;
-  height: calc(100.00% - 3px);
-  left: 9px;
-  line-height: 22px;
-  position: absolute;
-  text-align: left;
-  top: 4px;
-  white-space: nowrap;
-  width: 48px;
-}
 .search-field-container {
   background-color: transparent;
   height: 33px;
@@ -63,7 +50,7 @@
   white-space: nowrap;
   width: 206px;
 }
-.font-class-1 {
+.default-font {
   font-family: 'Segoe UI', Helvetica, Arial, serif;
   font-style: normal;
   font-weight: 400;
@@ -83,14 +70,6 @@
   margin-top: 21px;
   position: relative;
   width: 382px;
-}
-.group-3 {
-  background-color: transparent;
-  height: 100%;
-  left: 0px;
-  position: relative;
-  top: 0px;
-  width: 100%;
 }
 .statute-button-container {
   background-color: transparent;
@@ -124,24 +103,6 @@
   position: absolute;
   top: -6px;
   width: calc(100.00% + 18px);
-}
-.rectangle-2 {
-  background-color: white;
-  border-radius: 17px;
-  height: calc(100.00% - 10px);
-  left: 0px;
-  position: absolute;
-  top: 5px;
-  width: calc(100.00% - 12px);
-}
-.rectangle-2-7QyA8p {
-  background-color: white;
-  border-radius: 17px;
-  height: calc(100.00% - 10px);
-  left: 0px;
-  position: absolute;
-  top: 5px;
-  width: calc(100.00% - 7px);
 }
 .header-buttons {
   background-color: var(--pink-swan);
