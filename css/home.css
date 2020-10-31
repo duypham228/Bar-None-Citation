@@ -13,7 +13,7 @@
   white-space: nowrap;
   width: 250px;
 }
-.border-class-1 {
+.default-border {
   border: 1px solid var(--dove-gray);
 }
 .header-button-text {
@@ -168,7 +168,7 @@
   top: calc(22.38% - 11px);
   width: 97px;
 }
-.rectangle-9 {
+.results-box {
   background-color: white;
   bottom: 37px;
   height: 294px;
