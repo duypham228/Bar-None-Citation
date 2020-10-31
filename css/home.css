@@ -42,7 +42,7 @@
   white-space: nowrap;
   width: 48px;
 }
-.component-1-1 {
+.search-field-container {
   background-color: transparent;
   height: 33px;
   left: 37px;
@@ -68,7 +68,7 @@
   font-style: normal;
   font-weight: 400;
 }
-.group-10 {
+.rules-button-container {
   background-color: transparent;
   height: 35px;
   position: absolute;
@@ -92,7 +92,7 @@
   top: 0px;
   width: 100%;
 }
-.group-4 {
+.statute-button-container {
   background-color: transparent;
   height: 35px;
   position: absolute;
@@ -100,7 +100,7 @@
   top: 62px;
   width: 92px;
 }
-.group-9 {
+.case-button-container {
   background-color: transparent;
   height: 35px;
   left: 56px;
@@ -115,8 +115,9 @@
   position: absolute;
   top: 0px;
   width: 65px;
+  border-color: transparent;
 }
-.path-1 {
+.search-container-location {
   background-color: transparent;
   height: calc(100.00% + 18px);
   left: -9px;
@@ -151,7 +152,7 @@
   top: 1px;
   width: 100%;
 }
-.rectangle-4 {
+.bottom-half {
   background-color: white;
   height: calc(100.00% - 173px);
   left: 0px;
@@ -159,7 +160,7 @@
   top: 173px;
   width: 380px;
 }
-.search-box {
+.search-button {
   background-color: transparent;
   height: 51px;
   position: absolute;
