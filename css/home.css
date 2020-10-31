@@ -54,14 +54,14 @@
   background-color: transparent;
   color: var(--stack);
   font-size: 16px;
-  height: 23px;
-  left: 48px;
+  height: 28px;
+  left: 36px;
   line-height: 16px;
   position: absolute;
   text-align: left;
-  top: calc(23.95% - 6px);
+  top: calc(23.95% - 14px);
   white-space: nowrap;
-  width: 184px;
+  width: 206px;
 }
 .font-class-1 {
   font-family: 'Segoe UI', Helvetica, Arial, serif;
@@ -159,7 +159,7 @@
   top: 173px;
   width: 380px;
 }
-.rectangle-6 {
+.search-box {
   background-color: transparent;
   height: 51px;
   position: absolute;
@@ -192,14 +192,14 @@
   background-color: transparent;
   color: white;
   font-size: 16px;
-  height: 23px;
+  height: 30px;
   line-height: 16px;
   position: absolute;
-  right: calc(17.12% - 8px);
+  right: calc(17.12% - 22px);
   text-align: left;
-  top: calc(23.95% - 6px);
+  top: calc(23.95% - 12px);
   white-space: nowrap;
-  width: 49px;
+  width: 78px;
 }
 .search-results {
   background-color: transparent;
