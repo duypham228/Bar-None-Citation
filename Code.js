@@ -18,7 +18,7 @@ function showDialog() {
   var html = HtmlService.createHtmlOutputFromFile('popup')
     .setTitle('Bar None Citations')
     .setWidth(400)
-    .setHeight(300);
+    .setHeight(600);
   DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
     .showModalDialog(html, 'Pop Up');
 }
