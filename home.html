@@ -209,23 +209,31 @@
       function searchClicked() {
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
+      }  
+      function iconClicked() {
+        var div = document.getElementById('searchOrCite');
+        div.innerHTML = 'Recent Citations:';
       }
+
       function generalClicked (index) {
         switch(index) {
           case 1:
             searchClicked();
-            alert ("Search Button is Clicked");
+            alert ("Click this to query the database for selected element");
             break;
           case 2:
-            alert ("Case Button is Clicked");
+            alert ("Click this if you are citing a case");
             break;
           case 3:
-            alert ("Statue Button is Clicked");
+            alert ("Click this if you are citing a statute");
             break;
           case 4:
-            alert ("Rules Button is Clicked");
+            alert ("Click this if you are citing a rule");
             break;
-          
+          case 5:
+            iconClicked();
+            alert ("Click this to go back to the starting sidebar");
+            break;
 }
           
         
@@ -242,7 +250,7 @@
           class="legal-icon"
           src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon@1x.png"
         />
-        <input type="submit" class = "legal-icon" value = "">
+        <input type="submit" class = "legal-icon" value = "" onclick="generalClicked(5)">
         <div class="case-button-container">
             <input type="button" class = "case-button-container header-buttons default-border header-button-text default-font" value="Case" onclick="generalClicked(2)">
         </div>
