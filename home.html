@@ -206,6 +206,32 @@
       }
     </style>
     <script>
+      function searchClicked() {
+        var div = document.getElementById('searchOrCite');
+        div.innerHTML = 'Search Results:';
+      }
+      function generalClicked (index) {
+        switch(index) {
+          case 1:
+            searchClicked();
+            alert ("Search Button is Clicked");
+            break;
+          case 2:
+            alert ("Case Button is Clicked");
+            break;
+          case 3:
+            alert ("Statue Button is Clicked");
+            break;
+          case 4:
+            alert ("Rules Button is Clicked");
+            break;
+          
+}
+          
+        
+      }
+        
+      
       
     </script>
 </head>
@@ -218,13 +244,13 @@
         />
         <input type="submit" class = "legal-icon" value = "">
         <div class="case-button-container">
-            <input type="submit" class = "case-button-container header-buttons default-border header-button-text default-font" value="Case">
+            <input type="button" class = "case-button-container header-buttons default-border header-button-text default-font" value="Case" onclick="generalClicked(2)">
         </div>
         <div class="statute-button-container">
-          <input type="submit" class = "header-buttons default-border header-button-text default-font" value="Statute">
+          <input type="button" class = "header-buttons default-border header-button-text default-font" value="Statute" onclick="generalClicked(3)">
         </div>
         <div class="rules-button-container">
-            <input type ="submit" class = "header-buttons default-border header-button-text default-font" value = "Rules">
+            <input type ="button" class = "header-buttons default-border header-button-text default-font" value = "Rules" onclick="generalClicked(4)">
         </div>
         <div class="search-field-container">
           <img
@@ -237,48 +263,14 @@
           class="search-button"
           src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/rectangle-6@1x.png"
         />
-        <input type="button" class = "search-button search" value = "Search" onclick="google.script.run.withSuccessHandler(setTimeout(function(){ alert('After 5 seconds'); }, 5000)).showDialog()">
+      <input type="button" class = "search-button search" value = "Search"  onclick="generalClicked(1)">
         <!--<div class="search default-font">Search</div>-->
         <div class="bottom-half default-border"></div>
-        <div class="search-results default-font">Recent Citations:</div>
+        <div id="searchOrCite" class="search-results default-font">Recent Citations:</div>
         <div class="results-box default-border"></div> 
       </div>
 
-      <!-- <div class="search-results"> -->
-        <!-- <div class="rectangle-1 default-border"></div> -->
-        <div class="header grid-child">
-          <h1 class="bar-none-citations default-font">Bar None Citations</h1>
-          <img
-            class="legal-icon"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon@1x.png"
-          />
-          <input type="submit" class = "legal-icon" value = "">
-          <div class="case-button-container">
-            <input type="submit" class = "case-button-container header-buttons default-border header-button-text default-font" value="Case">
-          </div>
-          <div class="statute-button-container">
-            <input type="submit" class = "header-buttons default-border header-button-text default-font" value="Statute">
-          </div>
-          <div class="rules-button-container">
-            <input type ="submit" class = "header-buttons default-border header-button-text default-font" value = "Rules">
-          </div>
-          <div class="search-field-container">
-            <img
-              class="search-container-location"
-              src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/path-1@1x.png"
-            />
-          </div>
-          <input type="text" class ="enter-case-statue-name default-font default-border " name="search-name" value="Enter case or statue name">
-          <div class="bottom-half default-border"></div>
-          <img
-            class="search-button"
-            src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/rectangle-6@1x.png"
-          />
-          <input type="submit" class = "search-button search default-font" value = "Search">
-          <div class="search-results default-font">Search Results:</div>
-          <div class="results-box default-border"></div>
-        </div>
-      <!-- </div> -->
+      
   
 </body>
 </html>
