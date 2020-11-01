@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
     <!-- <link rel="stylesheet" href="home.css"> -->
+    <!--<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">-->
     <style>
       @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
       @import url('https://fonts.googleapis.com/css?family=Segoe+UI:400');
       .bar-none-citations {
         background-color: transparent;
         color: var(--alto);
-        font-size: 30px;
+        font-size: 24px;
         height: 42px;
         line-height: 30px;
         position: absolute;
-        right: 36px;
+        right: 42px;
         text-align: left;
         top: 12px;
         white-space: nowrap;
-        width: 250px;
+        width: 200px;
       }
       .default-border {
         border: 1px solid var(--dove-gray);
@@ -27,12 +28,12 @@
       .header-button-text {
         background-color: transparent;
         color: black;
-        font-size: 22px;
-        height: calc(100.00% - 3px);
+        font-size: 16px;
+        height: calc(100.00% - 0px);
         line-height: 22px;
         position: absolute;
-        right: calc(46.15% - 22px);
-        text-align: left;
+        right: calc(46.15% - 0px);
+        text-align: center;
         top: 7px;
         white-space: nowrap;
         width: 48px;
@@ -40,7 +41,7 @@
       .search-field-container {
         background-color: transparent;
         height: 33px;
-        left: 37px;
+        left: 30px;
         position: absolute;
         top: calc(22.76% - 8px);
         width: 211px;
@@ -48,15 +49,15 @@
       .enter-case-statue-name {
         background-color: transparent;
         color: var(--stack);
-        font-size: 16px;
+        font-size: 14px;
         height: 28px;
-        left: 36px;
+        left: 29px;
         line-height: 16px;
         position: absolute;
         text-align: left;
         top: calc(23.95% - 14px);
         white-space: nowrap;
-        width: 206px;
+        width: 163px;
       }
       .default-font {
         font-family: 'Segoe UI', Helvetica, Arial, serif;
@@ -69,7 +70,7 @@
         position: absolute;
         right: 40px;
         top: 62px;
-        width: 87px;
+        width: 70px;
       }
       .header {
         background-color: maroon;
@@ -77,31 +78,31 @@
         height: 547px;
         margin-top: 21px;
         position: relative;
-        width: 382px;
+        width: 300px;
       }
       .statute-button-container {
         background-color: transparent;
         height: 35px;
         position: absolute;
-        right: calc(47.24% - 43px);
+        right: calc(47.24% - 22px);
         top: 62px;
-        width: 92px;
+        width: 70px;
       }
       .case-button-container {
         background-color: transparent;
         height: 35px;
-        left: 56px;
+        left: 32px;
         position: absolute;
         top: 62px;
-        width: 87px;
+        width: 70px;
       }
       .legal-icon {
         background-color: transparent;
-        height: 62px;
-        left: 22px;
+        height: 45px;
+        left: 8px;
         position: absolute;
-        top: 0px;
-        width: 65px;
+        top: 5px;
+        width: 45px;
         border-color: transparent;
       }
       .search-container-location {
@@ -110,7 +111,7 @@
         left: -9px;
         position: absolute;
         top: -6px;
-        width: calc(100.00% + 18px);
+        width: calc(100.00% - 26px);
       }
       .header-buttons {
         background-color: var(--pink-swan);
@@ -127,15 +128,15 @@
         left: 0px;
         position: absolute;
         top: 173px;
-        width: 380px;
+        width: 298px;
       }
       .search-button {
         background-color: transparent;
         height: 51px;
         position: absolute;
-        right: 34px;
+        right: 22px;
         top: calc(22.38% - 11px);
-        width: 97px;
+        width: 80px;
       }
       .results-box {
         background-color: white;
@@ -161,15 +162,15 @@
       .search {
         background-color: transparent;
         color: white;
-        font-size: 16px;
-        height: 30px;
+        font-size: 14px;
+        height: 34px;
         line-height: 16px;
         position: absolute;
-        right: calc(17.12% - 22px);
-        text-align: left;
-        top: calc(23.95% - 12px);
+        right: calc(17.12% - 24px);
+        text-align: center;
+        top: calc(23.95% - 14px);
         white-space: nowrap;
-        width: 78px;
+        width: 68px;
       }
       .search-results {
         background-color: transparent;
@@ -236,7 +237,7 @@
           class="search-button"
           src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/rectangle-6@1x.png"
         />
-        <input type="button" class = "search-box search default-font" value = "Search" onclick="google.script.run.withSuccessHandler(setTimeout(function(){ alert('After 5 seconds'); }, 5000)).showDialog()">
+        <input type="button" class = "search-button search" value = "Search" onclick="google.script.run.withSuccessHandler(setTimeout(function(){ alert('After 5 seconds'); }, 5000)).showDialog()">
         <!--<div class="search default-font">Search</div>-->
         <div class="bottom-half default-border"></div>
         <div class="search-results default-font">Recent Citations:</div>
@@ -273,7 +274,7 @@
             class="search-button"
             src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/rectangle-6@1x.png"
           />
-          <input type="submit" class = "search-box search default-font" value = "Search">
+          <input type="submit" class = "search-button search default-font" value = "Search">
           <div class="search-results default-font">Search Results:</div>
           <div class="results-box default-border"></div>
         </div>
