@@ -354,6 +354,11 @@
         .dd-content a:hover {background-color: #ddd;}
         .dropdown:hover .dd-content {display: block;}
     </style>
+    <script>
+        function generateCitation() {
+            alert ("Clicking the blue button will generate the citation in the whitespace below");
+        }
+    </script>
 </head>
 <body>
     <div class="rectangle-1 border-class-1">
@@ -395,7 +400,7 @@
             <input type="radio" class="le2d-ellipse" name="court-reporter" value="LE2d">
             <div class="le2d font-class-1">L.E.2d</div>
             <!------------------------Submit Button-------------------------------------------------->
-            <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation">
+            <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">
         </div>
     </div>
 </body>
