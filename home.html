@@ -209,6 +209,11 @@
       function searchClicked() {
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
+        google.script.run
+          .withSuccessHandler()
+          .withFailureHandler()
+          .showDialog();
+        
       }  
       function iconClicked() {
         var div = document.getElementById('searchOrCite');
@@ -219,7 +224,7 @@
         switch(index) {
           case 1:
             searchClicked();
-            alert ("Click this to query the database for selected element");
+            // alert ("Click this to query the database for selected element");
             break;
           case 2:
             alert ("Click this if you are citing a case");
