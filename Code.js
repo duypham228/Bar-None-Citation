@@ -22,3 +22,13 @@ function showDialog() {
   DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
     .showModalDialog(html, 'Pop Up');
 }
+
+function openSheet() {
+  var sheet = SpreadsheetApp.openById("1KQg3Gj_PwUzf-JHPgKni-Y0RWcXPrQv3-lRNS6zOUas");
+  
+}
+
+// function testString() {
+//   var returnString = "";
+//   return returnString;
+// }
