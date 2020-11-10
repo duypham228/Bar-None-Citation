@@ -355,10 +355,8 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        function generateCitation() {
+        function generateCitation(name, vol, reporter, page, year, style){
             alert ("Clicking the blue button will generate the citation in the whitespace below");
-        }
-        function createCitation(name, vol, reporter, page, year, style){
             var citation = "";
             switch(style){
                 case "SC":
@@ -371,7 +369,7 @@
                 citation = "";
                 break;
             }
-                return citation;
+            return citation;
         }
     </script>
 </head>
