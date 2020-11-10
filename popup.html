@@ -358,6 +358,21 @@
         function generateCitation() {
             alert ("Clicking the blue button will generate the citation in the whitespace below");
         }
+        function createCitation(name, vol, reporter, page, year, style){
+            var citation = "";
+            switch(style){
+                case "SC":
+                citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
+                break;
+                case "TX":
+                citation = "";
+                break;
+                case "FED":
+                citation = "";
+                break;
+            }
+                return citation;
+        }
     </script>
 </head>
 <body>
