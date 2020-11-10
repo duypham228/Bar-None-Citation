@@ -25,7 +25,22 @@ function showDialog() {
 
 function openSheet() {
   var sheet = SpreadsheetApp.openById("1KQg3Gj_PwUzf-JHPgKni-Y0RWcXPrQv3-lRNS6zOUas");
-  
+}
+
+function createCitation(name, vol, reporter, page, year, style){
+  var citation = "";
+  switch(style){
+    case "SC":
+      citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
+      break;
+    case "TX":
+      citation = "";
+      break;
+    case "FED":
+      citation = "";
+      break;
+  }
+    return citation;
 }
 
 // function testString() {
