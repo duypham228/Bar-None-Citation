@@ -1,8 +1,8 @@
 function onOpen() {
   DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
       .createAddonMenu()
-      .addItem('Show sidebar', 'showSidebar')
-      .addItem('Show Popup', 'showDialog')
+      .addItem('Autocite', 'showSidebar')
+      .addItem('Manual Citation', 'showDialog')
       .addToUi();
 }
 
