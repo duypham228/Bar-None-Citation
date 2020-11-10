@@ -1,6 +1,6 @@
 function onOpen() {
   DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
-      .createMenu('Custom Menu')
+      .createAddonMenu()
       .addItem('Show sidebar', 'showSidebar')
       .addItem('Show Popup', 'showDialog')
       .addToUi();
