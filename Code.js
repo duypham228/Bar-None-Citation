@@ -17,7 +17,20 @@ function showSidebar() {
 }
 
 function showDialog() {
-  var html = HtmlService.createHtmlOutputFromFile('popup')
+  // var html;
+  // switch(style){
+  //   case("citeCase"):
+  //     html = HtmlService.createHtmlOutputFromFile('citeCase')
+  //     .setTitle('Bar None Citations')
+  //     .setWidth(400)
+  //     .setHeight(600);
+  //     break;
+  //   case("citeRule"):
+  //     break;
+  //   case("citeStatute"):
+  //     break;
+  // }
+  var html = HtmlService.createHtmlOutputFromFile('citeCase')
     .setTitle('Bar None Citations')
     .setWidth(400)
     .setHeight(600);
@@ -30,8 +43,8 @@ function showDialog() {
 function showHelp() {
   var html = HtmlService.createHtmlOutputFromFile('help')
     .setTitle('Help')
-    .setWidth(300)
-    .setHeight(300);
+    .setWidth(350)
+    .setHeight(200);
   DocumentApp.getUi()
     .showModalDialog(html, 'Help for BarNoneCitations');
 }
