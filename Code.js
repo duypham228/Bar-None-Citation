@@ -23,6 +23,8 @@ function showDialog() {
     .setHeight(600);
   DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
     .showModalDialog(html, 'Pop Up');
+    var test = "test string \u00a7";
+    console.log(test);
 }
 
 function showHelp() {
@@ -31,7 +33,7 @@ function showHelp() {
     .setWidth(300)
     .setHeight(300);
   DocumentApp.getUi()
-    .showModalDialog(html, 'Pop Up');
+    .showModalDialog(html, 'Help for BarNoneCitations');
 }
 
 function openSheet() {

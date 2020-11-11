@@ -1,1 +1,39 @@
-Howdy!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style>
+        .header {
+            height: 25%;
+            width: 30%;
+            position: absolute;
+        }
+        .dialogue-box {
+            background-color: transparent;
+            font-size: 16px;
+            height: 150px;
+            width: 200px;
+            right: 30px;
+            top: 30px;
+            border-color: grey;
+            border-width: 1px solid;
+        }
+        .close-button {
+            left: 30px;
+            bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="dialogue-box">Here are the instructions that will help!</div>
+        <div class="close-button">
+            <input type="button" value="close" onclick="google.script.host.close()" />
+        </div>
+    </div>
+</body>
+</html>
