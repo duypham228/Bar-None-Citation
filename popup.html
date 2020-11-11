@@ -355,21 +355,34 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        function generateCitation(name, vol, reporter, page, year, style){
+        function generateCitation(name, vol, reporter, page, year, style, court){
             alert ("Clicking the blue button will generate the citation in the whitespace below");
+            var test = "test string \u00a7";
+            alert(test);
             var citation = "";
             switch(style){
                 case "SC":
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
                 break;
                 case "TX":
-                citation = "";
+                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
                 break;
                 case "FED":
-                citation = "";
+                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
                 break;
             }
             return citation;
+        }
+        function citeStatutes(vol, code, sect, year, style){
+            var citation = "";
+            switch(style){
+                case "US":
+                citation = vol+" "+code+" &sect "+sect+" ("+year+")";
+                break;
+                case "TX":
+                citation ="Tex. "+code+" &sect "+sect+" ("+year+")";
+                break;
+            }
         }
     </script>
 </head>
