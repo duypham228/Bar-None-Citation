@@ -3,6 +3,8 @@ function onOpen() {
       .createAddonMenu()
       .addItem('Autocite', 'showSidebar')
       .addItem('Manual Citation', 'showDialog')
+      .addSeparator()
+      .addItem('Help', 'showHelp')
       .addToUi();
 }
 
@@ -23,8 +25,18 @@ function showDialog() {
     .showModalDialog(html, 'Pop Up');
 }
 
+function showHelp() {
+  var html = HtmlService.createHtmlOutputFromFile('help')
+    .setTitle('Help')
+    .setWidth(300)
+    .setHeight(300);
+  DocumentApp.getUi()
+    .showModalDialog(html, 'Pop Up');
+}
+
 function openSheet() {
   var sheet = SpreadsheetApp.openById("1KQg3Gj_PwUzf-JHPgKni-Y0RWcXPrQv3-lRNS6zOUas");
+
 }
 
 // function testString() {
