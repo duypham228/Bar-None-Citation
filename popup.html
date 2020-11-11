@@ -355,11 +355,24 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        function generateCitation(name, vol, reporter, page, year, style, court){
+        function generateCitation(){
             alert ("Clicking the blue button will generate the citation in the whitespace below");
-            var test = "test string \u00a7";
-            alert(test);
             var citation = "";
+            alert(document.getElementById("name").value);
+            // switch(style){
+            //     case "case":
+            //     citation = citeCase(document.getElementById("name"));
+            //     break;
+            //     case "statute":
+            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
+            //     break;
+            //     case "rules":
+            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
+            //     break;
+            // }
+        }
+
+        function citeCase(name, vol, reporter, page, year, style, court){
             switch(style){
                 case "SC":
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
@@ -373,14 +386,15 @@
             }
             return citation;
         }
+
         function citeStatutes(vol, code, sect, year, style){
             var citation = "";
             switch(style){
                 case "US":
-                citation = vol+" "+code+" &sect "+sect+" ("+year+")";
+                citation = vol+" "+code+" \u00a7 "+sect+" ("+year+")";
                 break;
                 case "TX":
-                citation ="Tex. "+code+" &sect "+sect+" ("+year+")";
+                citation ="Tex. "+code+" \u00a7 "+sect+" ("+year+")";
                 break;
             }
         }
@@ -410,7 +424,7 @@
             </div>
             <!------------------------Text Fields-------------------------------------------------->
             <div class="name font-class-1">Name:</div>
-            <input type=text class="name-TB border-class-1" name="name" placeholder="">
+            <input type=text id= "name" class="name-TB border-class-1" name="name" placeholder="">
             <div class="page font-class-1">Page:</div>
             <input type=text class="page-TB border-class-1" name="page" placeholder="">
             <div class="volume font-class-1">Volume:</div>
