@@ -372,36 +372,22 @@
             // }
         }
 
-        function citeCase(name, vol, reporter, page, year, style, court){
-            switch(style){
-                case "SC":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
-                break;
-                case "TX":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
-                break;
-                case "FED":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
-                break;
-            }
+        function citeRule(name, titleNum, source, sect, date){
+            var citation = name +", "+titleNum+" "+source+" \u00a7 "+sect+" ("+date+").";
+            // switch(style){
+            //     case "SC":
+            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
+            //     break;
+            //     case "TX":
+            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
+            //     break;
+            //     case "FED":
+            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
+            //     break;
+            // }
             return citation;
         }
 
-        function citeStatutes(vol, code, sect, year, style){
-            var citation = "";
-            switch(style){
-                case "US":
-                citation = vol+" "+code+" \u00a7 "+sect+" ("+year+")";
-                break;
-                case "TX":
-                citation ="Tex. "+code+" \u00a7 "+sect+" ("+year+")";
-                break;
-            }
-        }
-
-        function citeRules(){
-            
-        }
     </script>
 </head>
 <body>

@@ -371,22 +371,6 @@
             //     break;
             // }
         }
-
-        function citeCase(name, vol, reporter, page, year, style, court){
-            switch(style){
-                case "SC":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
-                break;
-                case "TX":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
-                break;
-                case "FED":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
-                break;
-            }
-            return citation;
-        }
-
         function citeStatutes(vol, code, sect, year, style){
             var citation = "";
             switch(style){
