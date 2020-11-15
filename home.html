@@ -205,7 +205,8 @@
       }
     </style>
     <script>
-      function searchClicked() {
+      var citeStyle = 0;
+      function searchClicked(style) {
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         // var div = document.getElementsById("resultsboxid");
@@ -218,6 +219,44 @@
           <li><input type="button" value="Case 2" onclick="google.script.run.showDialog()"></li>
           <li><input type="button" value="Case 3" onclick="google.script.run.showDialog()"></li>
         </ul>`;
+        switch (style) {
+          case 0:
+            alert ("You need to choose whether you are citing a case, rule, or statute");
+            break;
+          case 1:
+            alert ("Case cited");
+            var div = document.getElementById("resultsboxid");
+            var resultString = div.innerHTML;
+            div.innerHTML = 
+            `<ul>
+            <li><input type="button" value="Case 1" onclick="google.script.run.showDialog()"></li>
+            <li><input type="button" value="Case 2" onclick="google.script.run.showDialog()"></li>
+            <li><input type="button" value="Case 3" onclick="google.script.run.showDialog()"></li>
+            </ul>`;
+            break;
+          case 2:
+            alert ("Statutue cited");
+            var div = document.getElementById("resultsboxid");
+            var resultString = div.innerHTML;
+            div.innerHTML = 
+            `<ul>
+            <li><input type="button" value="Case 1" onclick="google.script.run.showDialog()"></li>
+            <li><input type="button" value="Case 2" onclick="google.script.run.showDialog()"></li>
+            <li><input type="button" value="Case 3" onclick="google.script.run.showDialog()"></li>
+            </ul>`;
+            break;
+          case 3:
+            alert ("Rule cited");
+            var div = document.getElementById("resultsboxid");
+            var resultString = div.innerHTML;
+            div.innerHTML = 
+            `<ul>
+            <li><input type="button" value="Case 1" onclick="google.script.run.showDialog()"></li>
+            <li><input type="button" value="Case 2" onclick="google.script.run.showDialog()"></li>
+            <li><input type="button" value="Case 3" onclick="google.script.run.showDialog()"></li>
+            </ul>`;
+            break;
+        }
         // google.script.run.withSuccessHandler(onSuccess).testString();
         
       }  
@@ -229,17 +268,20 @@
       function generalClicked (index) {
         switch(index) {
           case 1:
-            searchClicked();
+            searchClicked(citeStyle);
             // alert ("Click this to query the database for selected element");
             break;
           case 2:
             alert ("Click this if you are citing a case");
+            citeStyle = 1;
             break;
           case 3:
             alert ("Click this if you are citing a statute");
+            citeStyle = 2;
             break;
           case 4:
             alert ("Click this if you are citing a rule");
+            citeStyle = 3;
             break;
           case 5:
             iconClicked();
