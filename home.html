@@ -210,18 +210,6 @@
       function searchClicked(style) {
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
-        /*
-        var div = document.getElementsById("resultsboxid");
-        div.innerHTML = "Hello Man";
-        var div = document.getElementById("resultsboxid");
-        var resultString = div.innerHTML;
-        div.innerHTML = 
-        `<ul>
-          <li><input type="button" value="Case 1" onclick="google.script.run.showDialog()"></li>
-          <li><input type="button" value="Case 2" onclick="google.script.run.showDialog()"></li>
-          <li><input type="button" value="Case 3" onclick="google.script.run.showDialog()"></li>
-        </ul>`;
-        */
         switch (style) {
           case 0:
             alert ("You need to choose whether you are citing a case, rule, or statute");
@@ -260,8 +248,6 @@
             </ul>`;
             break;
         }
-        // google.script.run.withSuccessHandler(onSuccess).testString();
-        
       }  
       function iconClicked() {
         var div = document.getElementById('searchOrCite');
