@@ -40,6 +40,39 @@ function showDialog() {
     console.log(test);
 }
 
+function showCaseDialog() {
+  var html = HtmlService.createHtmlOutputFromFile('citeCase')
+  .setTitle('Bar None Citations')
+  .setWidth(400)
+  .setHeight(600);
+DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+  .showModalDialog(html, 'Pop Up');
+  var test = "test string \u00a7";
+  console.log(test);
+}
+
+function showStatuteDialog() {
+  var html = HtmlService.createHtmlOutputFromFile('citeStatute')
+  .setTitle('Bar None Citations')
+  .setWidth(400)
+  .setHeight(600);
+DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+  .showModalDialog(html, 'Pop Up');
+  var test = "test string \u00a7";
+  console.log(test);
+}
+
+function showRuleDialog() {
+  var html = HtmlService.createHtmlOutputFromFile('citeRule')
+  .setTitle('Bar None Citations')
+  .setWidth(400)
+  .setHeight(600);
+DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+  .showModalDialog(html, 'Pop Up');
+  var test = "test string \u00a7";
+  console.log(test);
+}
+
 function showHelp() {
   var html = HtmlService.createHtmlOutputFromFile('help')
     .setTitle('Help')
@@ -51,7 +84,6 @@ function showHelp() {
 
 function openSheet() {
   var sheet = SpreadsheetApp.openById("1KQg3Gj_PwUzf-JHPgKni-Y0RWcXPrQv3-lRNS6zOUas");
-
 }
 
 function contactPage() {
