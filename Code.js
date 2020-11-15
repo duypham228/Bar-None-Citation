@@ -30,6 +30,7 @@ function showDialog() {
   //   case("citeStatute"):
   //     break;
   // }
+  
   var html = HtmlService.createHtmlOutputFromFile('citeCase')
     .setTitle('Bar None Citations')
     .setWidth(400)
