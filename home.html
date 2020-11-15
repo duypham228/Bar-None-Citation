@@ -215,7 +215,6 @@
             alert ("You need to choose whether you are citing a case, rule, or statute");
             break;
           case 1:
-            alert ("Case cited");
             var div = document.getElementById("resultsboxid");
             var resultString = div.innerHTML;
             div.innerHTML = 
@@ -226,7 +225,6 @@
             </ul>`;
             break;
           case 2:
-            alert ("Statutue cited");
             var div = document.getElementById("resultsboxid");
             var resultString = div.innerHTML;
             div.innerHTML = 
@@ -237,7 +235,6 @@
             </ul>`;
             break;
           case 3:
-            alert ("Rule cited");
             var div = document.getElementById("resultsboxid");
             var resultString = div.innerHTML;
             div.innerHTML = 
@@ -258,24 +255,20 @@
         switch(index) {
           case 1:
             searchClicked(citeStyle);
-            // alert ("Click this to query the database for selected element");
             break;
           case 2:
-            alert ("Click this if you are citing a case");
             citeStyle = 1;
             document.getElementById("case").style.background='#A9A9A9';
             document.getElementById("statute").style.background='#f1f1f1';
             document.getElementById("rules").style.background='#f1f1f1';
             break;
           case 3:
-            alert ("Click this if you are citing a statute");
             citeStyle = 2;
             document.getElementById("statute").style.background='#A9A9A9';
             document.getElementById("case").style.background='#f1f1f1';
             document.getElementById("rules").style.background='#f1f1f1';
             break;
           case 4:
-            alert ("Click this if you are citing a rule");
             citeStyle = 3;
             document.getElementById("rules").style.background='#A9A9A9';
             document.getElementById("case").style.background='#f1f1f1';
@@ -283,7 +276,6 @@
             break;
           case 5:
             iconClicked();
-            alert ("Click this to go back to the starting sidebar");
             break;
         }
     }     
