@@ -367,6 +367,23 @@
             return citation;
         }
 
+        function changeStyle(style){
+            switch(style){
+                case 1:
+                    var div = document.getElementById("sty");
+                    div.innerHTML = "Style: Supreme Court Cases";
+                    break;
+                case 2:
+                    var div = document.getElementById("sty");
+                    div.innerHTML = "Style: Texas Court Cases";
+                    break;
+                case 3:
+                    var div = document.getElementById("sty");
+                    div.innerHTML = "Style: Federal Court Cases";
+                    break;
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -380,11 +397,11 @@
             </div>
             <!------------------------Drop Down Menu-------------------------------------------------->
             <div class="ddMenu dropdown">
-                <button class="court-style font-class-1 dd-btn">Style: </button>
+                <button id="sty" class="court-style font-class-1 dd-btn">Style: </button>
                 <div class="dd-content">
-                    <a class="font-class-1" href="#">Supreme Court Cases</a>
-                    <a class="font-class-1" href="#">Texas Court Case</a>
-                    <a class="font-class-1" href="#">Federal Court Case</a>
+                    <a class="font-class-1" id="SC" onclick="changeStyle(1)" href="#">Supreme Court Cases</a>
+                    <a class="font-class-1" id="TX" onclick="changeStyle(2)" href="#">Texas Court Case</a>
+                    <a class="font-class-1" id="FED" onclick="changeStyle(3)" href="#">Federal Court Case</a>
                 </div>
                 <div class="group-6">
                 <img class="polygon-1" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/polygon-1@1x.png"/>

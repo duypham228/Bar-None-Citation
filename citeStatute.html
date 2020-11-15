@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Details</title>
     <!-- <link rel="stylesheet" href="popup.css"> -->
-    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <!--<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">-->
     <style>
         @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
         @import url('https://fonts.googleapis.com/css?family=Segoe+UI:400');
@@ -111,12 +111,12 @@
             top: 0px;
             width: 41px;
         }
-        .name {
+        .volume {
             background-color: transparent;
             color: black;
             font-size: 15px;
             height: 22px;
-            left: 20px;
+            left: 30px;
             line-height: 15px;
             position: absolute;
             text-align: left;
@@ -124,16 +124,16 @@
             white-space: nowrap;
             width: 45px;
         }
-        .page {
+        .code {
             background-color: transparent;
             color: black;
             font-size: 15px;
             height: 22px;
             line-height: 15px;
             position: absolute;
-            right: calc(49.85% - 18px);
+            left: 10px;
             text-align: left;
-            top: calc(35.10% - 8px);
+            top: calc(35.10% + 40px);
             white-space: nowrap;
             width: 37px;
         }
@@ -152,10 +152,10 @@
             position: absolute;
             width: 100%;
         }
-        .volume-TB {
+        .section-TB {
             background-color: white;
             height: 31px;
-            left: calc(25.52% - 19px);
+            left: 100px;
             position: absolute;
             top: calc(35.25% - 11px);
             width: 74px;
@@ -163,9 +163,9 @@
         .year-TB{
             background-color: white;
             height: 31px;
-            left: calc(25.78% - 19px);
+            left: 100px;
             position: absolute;
-            top: calc(45.62% - 14px);
+            top: calc(45.62% + 30px);
             width: 73px;
         }
         .submit-rectangle {
@@ -176,21 +176,21 @@
             right: calc(49.18% - 45px);
             width: 145px;
         }
-        .name-TB {
+        .volume-TB {
             background-color: white;
             height: 31px;
             position: absolute;
-            left: 75px;
+            left: 100px;
             top: calc(24.88% - 8px);
             width: 200px;
         }
-        .page-TB {
+        .code-TB {
             background-color: white;
             height: 31px;
             position: absolute;
-            right: calc(28.86% - 18px);
-            top: calc(35.25% - 11px);
-            width: 62px;
+            left: 100px;
+            top: calc(35.25% + 32px);
+            width: 73px;
         }
         .s-ct {
             background-color: transparent;
@@ -230,12 +230,12 @@
             white-space: nowrap;
             width: 27px;
         }
-        .volume {
+        .section {
             background-color: transparent;
             color: black;
             font-size: 15px;
             height: 22px;
-            left: 10px;
+            left: 30px;
             line-height: 15px;
             position: absolute;
             text-align: left;
@@ -261,11 +261,11 @@
             color: black;
             font-size: 15px;
             height: 22px;
-            left: 33px;
+            left: 46px;
             line-height: 15px;
             position: absolute;
             text-align: left;
-            top: calc(46.16% - 10px);
+            top: calc(46.16% + 32px);
             white-space: nowrap;
             width: 33px;
         }
@@ -350,23 +350,37 @@
         function citeRules(){
             
         }
+
+        function changeStyle(style){
+            switch(style){
+                case 1:
+                    var div = document.getElementById("sty");
+                    div.innerHTML = "Style: US";
+                    break;
+                case 2:
+                    var div = document.getElementById("sty");
+                    div.innerHTML = "Style: TX";
+                    break;
+            }
+        }
+
     </script>
 </head>
 <body>
     <div class="rectangle-1 border-class-1">
         <div class="group-18">
             <div class="headerRectangle">
-                <div class="bar-none-citations">Bar None Citations</div>
-                <div class="copy-paste-citation">Copy &amp; Paste Citation:</div>
+                <div class="bar-none-citations font-class-1">Bar None Citations</div>
+                <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
                 <div class="x font-class-1">X</div>
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
             <!------------------------Drop Down Menu-------------------------------------------------->
             <div class="ddMenu dropdown">
-                <button class="court-style font-class-1 dd-btn">Style: </button>
+                <button id="sty" class="court-style font-class-1 dd-btn">Style: </button>
                 <div class="dd-content">
-                    <a class="" href="#">US</a>
-                    <a class="" href="#">TX</a>
+                    <a class="font-class-1" id="SC" onclick="changeStyle(1)" href="#">US</a>
+                    <a class="font-class-1" id="TX" onclick="changeStyle(2)" href="#">TX</a>
                 </div>
                 <div class="group-6">
                 <img class="polygon-1" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/polygon-1@1x.png"/>
@@ -374,12 +388,12 @@
                 </div>
             </div>
             <!------------------------Text Fields-------------------------------------------------->
-            <div class="name">Volume:</div>
-            <input type=text id= "volume" class="name-TB border-class-1" name="name" placeholder="">
-            <div class="page">Code Abbreviation:</div>
-            <input type=text class="page-TB border-class-1" name="page" placeholder="">
-            <div class="volume">Section:</div>
-            <input type=text class="volume-TB border-class-1" name="page" placeholder="">
+            <div class="volume">Volume:</div>
+            <input type=text id= "volume" class="volume-TB border-class-1" name="name" placeholder="">
+            <div class="code">Code Abbr:</div>
+            <input type=text class="code-TB border-class-1" name="page" placeholder="">
+            <div class="section">Section:</div>
+            <input type=text class="section-TB border-class-1" name="page" placeholder="">
             <div class="year">Year:</div>
             <input type=text class="year-TB border-class-1" name="page" placeholder="">
             
