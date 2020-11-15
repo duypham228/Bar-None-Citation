@@ -6,33 +6,49 @@
     <title>home</title>
     <!-- <link rel="stylesheet" href="home.css"> -->
     <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <style>
-        .header {
-            height: 25%;
-            width: 30%;
-            position: absolute;
-        }
         .dialogue-box {
             background-color: transparent;
-            font-size: 16px;
-            height: 150px;
-            width: 200px;
-            right: 30px;
-            top: 30px;
-            border: 1px solid grey;
+            font-size: 14px;
+            font-family: 'Roboto';
+            height: 160px;
+            width: 290px;
+            position: absolute;
+            border: 1px solid lightgrey;
+            overflow: scroll;
         }
         .close-button {
-            left: 30px;
-            bottom: 30px;
+            right: 20px;
+            bottom: 20px;
+            position: absolute;
+            font-family: 'Roboto';
+            font-size: 16px;
+            background-color: white;
+        }
+        .contact-button {
+            right: 20px;
+            top: 0px;
+            position: absolute;
+            font-family: 'Roboto';
+            font-size: 16px;
+            background-color: white;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="dialogue-box">Here are the instructions that will help!</div>
-        <div class="close-button">
-            <input type="button" value="close" onclick="google.script.host.close()" />
-        </div>
+    <div class="dialogue-box">
+        <b>Thank you for picking BarNoneCitations!</b><br>
+        <p>Create a citation by clicking BarNoneCitations, then either Autocite or Manual Citation.
+            Clicking Autocite will allow you to search the name of a case, statute, or rule, and will
+            fill up some of the information needed from the results. To cite manually, click Manual Citation.
+        </p>
+    </div>
+    <div class="close-button">
+        <input type="button" value="Close" onclick="google.script.host.close()"/>
+    </div>
+    <div class="contact-button">
+        <input type="button" value="Contact" onclick="google.script.run.contactPage()"/>
     </div>
 </body>
 </html>

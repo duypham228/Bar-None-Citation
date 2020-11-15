@@ -43,8 +43,8 @@ function showDialog() {
 function showHelp() {
   var html = HtmlService.createHtmlOutputFromFile('help')
     .setTitle('Help')
-    .setWidth(350)
-    .setHeight(200);
+    .setWidth(427)
+    .setHeight(223);
   DocumentApp.getUi()
     .showModalDialog(html, 'Help for BarNoneCitations');
 }
@@ -52,6 +52,15 @@ function showHelp() {
 function openSheet() {
   var sheet = SpreadsheetApp.openById("1KQg3Gj_PwUzf-JHPgKni-Y0RWcXPrQv3-lRNS6zOUas");
 
+}
+
+function contactPage() {
+  var html = HtmlService.createHtmlOutputFromFile('contact')
+  .setTitle('Contact')
+  .setWidth(300)
+  .setHeight(300);
+DocumentApp.getUi()
+  .showModalDialog(html, 'Contact Us'); 
 }
 
 // function testString() {
