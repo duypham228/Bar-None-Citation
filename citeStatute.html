@@ -111,7 +111,7 @@
             top: 0px;
             width: 41px;
         }
-        .volume {
+        .title {
             background-color: transparent;
             color: black;
             font-size: 15px;
@@ -176,7 +176,7 @@
             right: calc(49.18% - 45px);
             width: 145px;
         }
-        .volume-TB {
+        .title-TB {
             background-color: white;
             height: 31px;
             position: absolute;
@@ -333,20 +333,16 @@
             //     break;
             // }
         }
-        function citeStatutes(vol, code, sect, year, style){
+        function citeStatutes(title, code, sect, year, style){
             var citation = "";
             switch(style){
                 case "US":
-                citation = vol+" "+code+" \u00a7 "+sect+" ("+year+")";
+                citation = title+" "+code+" \u00a7 "+sect+" ("+year+")";
                 break;
                 case "TX":
                 citation ="Tex. "+code+" \u00a7 "+sect+" ("+year+")";
                 break;
             }
-        }
-
-        function citeRules(){
-            
         }
 
         function changeStyle(style){
@@ -386,8 +382,8 @@
                 </div>
             </div>
             <!------------------------Text Fields-------------------------------------------------->
-            <div class="volume">Volume:</div>
-            <input type=text id= "volume" class="volume-TB border-class-1" name="name" placeholder="">
+            <div class="title">Title:</div>
+            <input type=text id= "title" class="title-TB border-class-1" name="name" placeholder="">
             <div class="code">Code Abbr:</div>
             <input type=text class="code-TB border-class-1" name="page" placeholder="">
             <div class="section">Section:</div>
