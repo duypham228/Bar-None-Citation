@@ -274,14 +274,23 @@
           case 2:
             alert ("Click this if you are citing a case");
             citeStyle = 1;
+            document.getElementById("case").style.background='#A9A9A9';
+            document.getElementById("statute").style.background='#f1f1f1';
+            document.getElementById("rules").style.background='#f1f1f1';
             break;
           case 3:
             alert ("Click this if you are citing a statute");
             citeStyle = 2;
+            document.getElementById("statute").style.background='#A9A9A9';
+            document.getElementById("case").style.background='#f1f1f1';
+            document.getElementById("rules").style.background='#f1f1f1';
             break;
           case 4:
             alert ("Click this if you are citing a rule");
             citeStyle = 3;
+            document.getElementById("rules").style.background='#A9A9A9';
+            document.getElementById("case").style.background='#f1f1f1';
+            document.getElementById("statute").style.background='#f1f1f1';
             break;
           case 5:
             iconClicked();
@@ -299,15 +308,15 @@
     </a>
       <!-- <input type="submit" class = "legal-icon" value = "" onclick="generalClicked(5)"> -->
       <div class="case-button-container">
-          <input type="button" class = "case-button-container header-buttons default-border header-button-text default-font" value="Case" onclick="generalClicked(2)">
+          <input type="button" id= "case" class = "case-button-container header-buttons default-border header-button-text default-font" value="Case" onclick="generalClicked(2)">
       </div>
 
       <div class="statute-button-container">
-        <input type="button" class = "header-buttons default-border header-button-text default-font" value="Statute" onclick="generalClicked(3)">
+        <input type="button" id="statute" class = "header-buttons default-border header-button-text default-font" value="Statute" onclick="generalClicked(3)">
       </div>
       
       <div class="rules-button-container">
-          <input type ="button" class = "header-buttons default-border header-button-text default-font" value = "Rules" onclick="generalClicked(4)">
+          <input type ="button" id="rules" class = "header-buttons default-border header-button-text default-font" value = "Rules" onclick="generalClicked(4)">
       </div>
       
       <input type="text" class ="enter-case-statue-name" name="search-name" placeholder="Enter case or statue name">
