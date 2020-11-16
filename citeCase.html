@@ -458,7 +458,7 @@
 
             citation = citeCase(name, volume, reporter, page, year, style, court);
             document.getElementById("citation").value = citation;
-            google.script.run.setCitation(citation);
+            
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){
@@ -474,7 +474,7 @@
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
                 break;
             }
-            
+            google.script.run.setCitation(citation);
             return citation;
         }
 

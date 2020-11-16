@@ -114,14 +114,18 @@ function getDataFromDialog() {
   return keys[0];
 }
 
-function setCitation(){
+function setCitation(citation){
   var documentProperties = PropertiesService.getDocumentProperties();
-  documentProperties.setProperty('citation', 'test');
+  documentProperties.deleteAllProperties();
+  documentProperties.setProperty('citation', citation);
+  Logger.log(citation);
+  return citation;
 }
 
 function getCitation() {
   var documentProperties = PropertiesService.getDocumentProperties();
   var citation = documentProperties.getProperty('citation');
+  Logger.log(citation);
   return citation;
 }
 

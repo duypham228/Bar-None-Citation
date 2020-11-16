@@ -144,6 +144,7 @@
         left: 22px;
         position: absolute;
         width: calc(100.00% - 52px);
+        overflow: scroll;
       }
       .rules {
         background-color: transparent;
@@ -232,11 +233,18 @@
                       ["54", "U.S.C", "320201","NATIONAL MONUMENTS", "2014"]];
       var citeStyle = 0;
       var recentCitations = [];
-
+      var hardCodedCitations = ["SNEPP v. UNITED STATES, 444 S.Ct 507 (1979)", 
+                                "SANTE FE INDEPENDENT SCHOOL DISTRICT v. JANE DOE, 530 S.Ct 290 (1999)",
+                              "GEORGE V. LONG BEACH CITY, 360 F. 2 (9 1991)"];
+      // var citation;
+      function onSuccess (result) {
+        recentCitations.push(result);
+      }                      
       function addCitation(){
-        var citation = google.script.run.getCitation();
-        recentCitations.push(citation);
-        alert(citation);
+        // var citation = "Hello";
+        google.script.run.withSuccessHandler(onSuccess).getCitation();
+        // recentCitations.push(citation);
+        // alert(citation);
       }
       function customAlert(info) {
         alert(info);
@@ -296,13 +304,16 @@
         addCitation();
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Recent Citations:';
-        var resultString = document.getElementById("resultsboxid").innerHTML;
+        var resultString; 
         resultString = "<ul>";
         var i;
-        for(i in recentCitations){
-          resultString +="<li>" + i + "</li>";
+        for(i of recentCitations){
+          resultString +="<li>" + i + "</li></br>";
         }
         resultString+="</ul>";
+        // alert (resultString);
+        var div = document.getElementById("resultsboxid");
+        div.innerHTML = resultString;
       }
 
       function generalClicked (index) {
