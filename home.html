@@ -402,19 +402,19 @@
             // google.script.run.withSuccessHandler(customAlert).openSheet();
             var div = document.getElementById("resultsboxid");
             var resultString = div.innerHTML;
-            //withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar()"
+            //withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params)"></li>
             div.innerHTML = '<ul style="list-style-type:none;">';
             var i; 
             for(i of scResults){
-              let params = parseSupremeCourt(i);
-              div.innerHTML += '<li><input type="button" value="'+ scCases[i][4]+'" onclick="withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params)"></li>';
+              //let params = parseSupremeCourt(i);
+              div.innerHTML += '<li><input type="button" value="'+ scCases[i][4]+'" onclick="google.script.run.showCaseDialog()"></li>';
             }
             for(i of txResults){
-              let params = parseTexas(i);
+              //let params = parseTexas(i);
               div.innerHTML += '<li><input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></li>';
             }
             for(i of fedResults){
-              let params = parseFederal(i);
+              //let params = parseFederal(i);
               div.innerHTML += '<li><input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></li>';
             }
             div.innerHTML +="</ul>";
