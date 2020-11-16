@@ -269,6 +269,18 @@
             white-space: nowrap;
             width: 33px;
         }
+        #citation {
+            bottom: -40px;
+            color: black;
+            font-size: 15px;
+            height: 22px;
+            left: 20px;
+            line-height: 15px;
+            position: absolute;
+            text-align: left;
+            white-space: nowrap;
+            width: 330px;
+        }
         :root {
             --alto: rgba(226,218,218,1.0);
             --concrete: rgba(242,242,242,1.0);
@@ -320,18 +332,15 @@
     </style>
     <script>
         function generateCitation(){
-            var citation = "";
-            // switch(style){
-            //     case "case":
-            //     citation = citeCase(document.getElementById("name"));
-            //     break;
-            //     case "statute":
-            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
-            //     break;
-            //     case "rules":
-            //     citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
-            //     break;
-            // }
+            var citation;
+            //document.getElementById("testName").setAttribute("placeholder", result);
+            var style = document.getElementById("sty").innerHTML.substr(7);
+            var title = document.getElementById("title").value;
+            var sect = document.getElementById("section").value;
+            var code = document.getElementById("code").value;
+            var year = document.getElementById("year").value;
+
+            document.getElementById("citation").value = citeStatutes(title, code, sect, year, style);
         }
         function citeStatutes(title, code, sect, year, style){
             var citation = "";
@@ -366,6 +375,7 @@
             <div class="headerRectangle">
                 <div class="bar-none-citations font-class-1">Bar None Citations</div>
                 <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
+                <input type="text" class="font-class-1" id="citation" placeholder="citation will go here...">
                 <div class="x font-class-1">X</div>
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
@@ -385,11 +395,11 @@
             <div class="title">Title:</div>
             <input type=text id= "title" class="title-TB border-class-1" name="name" placeholder="">
             <div class="code">Code Abbr:</div>
-            <input type=text class="code-TB border-class-1" name="page" placeholder="">
+            <input type=text id= "code" class="code-TB border-class-1" name="page" placeholder="">
             <div class="section">Section:</div>
-            <input type=text class="section-TB border-class-1" name="page" placeholder="">
+            <input type=text id="section" class="section-TB border-class-1" name="page" placeholder="">
             <div class="year">Year:</div>
-            <input type=text class="year-TB border-class-1" name="page" placeholder="">
+            <input type=text id="year" class="year-TB border-class-1" name="page" placeholder="">
             
             <!-- <div class="court-reporter">Court Reporter:</div>
             <fieldset data-role="controlgroup" data-type="horizontal">
