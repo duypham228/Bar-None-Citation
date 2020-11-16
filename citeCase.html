@@ -355,8 +355,9 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        function generateCitation(){
-            var citation = "";
+        function generateCitation(resutl){
+            var citation = resutl;
+            document.getElementById("testName").setAttribute("placeholder", resutl);
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){
@@ -415,7 +416,7 @@
             </div>
             <!------------------------Text Fields-------------------------------------------------->
             <div class="name font-class-1">Name:</div>
-            <input type=text id= "name" class="name-TB border-class-1" name="name" placeholder="">
+            <input id="testName" type=text id= "name" class="name-TB border-class-1" name="name" placeholder="">
             <div class="page font-class-1">Page:</div>
             <input type=text class="page-TB border-class-1" name="page" placeholder="">
             <div class="volume font-class-1">Volume:</div>
@@ -431,7 +432,7 @@
             <input type="radio" class="le2d-ellipse" name="court-reporter" value="LE2d">
             <div class="le2d font-class-1">L.E.2d</div>
             <!------------------------Submit Button-------------------------------------------------->
-            <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">
+            <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick=";google.script.run.withSuccessHandler(generateCitation).getDataFromDialog();">
         </div>
     </div>
 </body>

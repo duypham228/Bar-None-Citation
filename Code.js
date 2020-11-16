@@ -100,3 +100,16 @@ DocumentApp.getUi()
 //   var returnString = "";
 //   return returnString;
 // }
+
+function setDataFromSideBar() {
+   var documentProperties = PropertiesService.getDocumentProperties();
+   documentProperties.setProperty('Name', 'Duy');
+
+}
+
+function getDataFromDialog() {
+  var documentProperties = PropertiesService.getDocumentProperties();
+  var prop = documentProperties.getProperties();
+  return prop[0];
+}
+

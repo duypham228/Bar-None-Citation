@@ -219,7 +219,7 @@
             var resultString = div.innerHTML;
             div.innerHTML = 
             `<ul>
-            <li><input type="button" value="Case 1" onclick="google.script.run.showCaseDialog()"></li>
+            <li><input type="button" value="Case 1" onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar()"></li>
             <li><input type="button" value="Case 2" onclick="google.script.run.showCaseDialog()"></li>
             <li><input type="button" value="Case 3" onclick="google.script.run.showCaseDialog()"></li>
             </ul>`;
