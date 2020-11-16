@@ -106,12 +106,23 @@ DocumentApp.getUi()
 function setDataFromSideBar() {
    var documentProperties = PropertiesService.getDocumentProperties();
    documentProperties.setProperty('Name', 'Duy');
-
 }
 
 function getDataFromDialog() {
   var documentProperties = PropertiesService.getDocumentProperties();
   var keys = documentProperties.getKeys();
   return keys[0];
+}
+
+function setCitation(citation){
+  var documentProperties = PropertiesService.getDocumentProperties();
+  documentProperties.setProperty('citation', citation);
+}
+
+function getCitation() {
+  var citation;
+  var documentProperties = PropertiesService.getDocumentProperties();
+  citation = documentProperties.getProperty('citation');
+  return citation;
 }
 

@@ -428,6 +428,7 @@
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
                 break;
             }
+            google.script.run(setCitation(citation));
             return citation;
         }
 

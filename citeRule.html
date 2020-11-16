@@ -11,6 +11,18 @@
         * {
         box-sizing: border-box;
         }
+        #citation {
+        bottom: -40px;
+        color: black;
+        font-size: 15px;
+        height: 22px;
+        left: 20px;
+        line-height: 15px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 330px;
+        }
         .bar-none-citations {
         background-color: transparent;
         color: var(--alto);
@@ -356,7 +368,28 @@
     </style>
     <script>
         function generateCitation(){
-            var citation = "";
+            var citation;
+            //document.getElementById("testName").setAttribute("placeholder", result);
+            var style = document.getElementById("sty").innerHTML.substr(7);
+            if(style[0] == 'U'){
+                style = "US";
+            }
+            else if(style[0] == 'T'){
+                style = "TX";
+            }
+            var title = document.getElementById("testName").value;
+            var reporter;
+            var elements = document.getElementsByName("court-reporter"); 
+            for(i = 0; i < elements.length; i++) { 
+                if(elements[i].checked) 
+                    reporter = elements[i].value; 
+            }
+            var page = document.getElementById("pg").value;
+            var year = document.getElementById("year").value;
+            var volume = document.getElementById("vol").value;
+            var court = document.getElementById("court").value;
+
+            document.getElementById("citation").value = citeCase(name, volume, reporter, page, year, style, court);
         }
 
         function citeRule(name, titleNum, source, sect, date){
@@ -389,6 +422,7 @@
             <div class="headerRectangle">
                 <div class="bar-none-citations font-class-1">Bar None Citations</div>
                 <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
+                <input type="text" class="font-class-1" id="citation" placeholder="citation will go here...">
                 <div class="x font-class-1">X</div>
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
