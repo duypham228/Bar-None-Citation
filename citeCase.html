@@ -97,6 +97,14 @@
         right: calc(47.55% - 13px);
         width: 13px;
         }
+        .fed-ellipse{
+        background-color: transparent;
+        bottom: calc(38.05% - 5px);
+        height: 13px;
+        position: absolute;
+        right: calc(47.55% - 90px);
+        width: 13px;
+        }
         .font-class-1 {
         font-family: 'Segoe UI', Helvetica, Arial, serif;
         font-style: normal;
@@ -299,6 +307,20 @@
         white-space: nowrap;
         width: 27px;
         }
+        .fed {
+        background-color: transparent;
+        bottom: calc(36.91% - 8px);
+        color: black;
+        font-size: 15px;
+        height: 22px;
+        left: calc(21.92% + 205px);
+        line-height: 15px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 27px;
+        }
+        
         .volume {
         background-color: transparent;
         color: black;
@@ -495,6 +517,8 @@
             <div class="s-ct font-class-1">S.Ct</div>
             <input type="radio" class="le2d-ellipse" name="court-reporter" value="L.E.2d">
             <div class="le2d font-class-1">L.E.2d</div>
+            <input type="radio" class="fed-ellipse" name="court-reporter" value="F.">
+            <div class="fed font-class-1">F.</div>
             <!------------------------Submit Button-------------------------------------------------->
             <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">
         </div>
