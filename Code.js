@@ -30,7 +30,7 @@ function showDialog() {
   //   case("citeStatute"):
   //     break;
   // }
-  
+
   var html = HtmlService.createHtmlOutputFromFile('citeCase')
     .setTitle('Bar None Citations')
     .setWidth(400)
@@ -84,7 +84,9 @@ function showHelp() {
 }
 
 function openSheet() {
-  var sheet = SpreadsheetApp.openById("1KQg3Gj_PwUzf-JHPgKni-Y0RWcXPrQv3-lRNS6zOUas");
+  var sheet = SpreadsheetApp.openById("1lvpUwAUj17WYopkuaVkizHa14OLa_o3UjfN7SCS6q64");
+  var data = sheet.getDataRange().getValues();
+  return data[0][0];
 }
 
 function contactPage() {
@@ -109,7 +111,7 @@ function setDataFromSideBar() {
 
 function getDataFromDialog() {
   var documentProperties = PropertiesService.getDocumentProperties();
-  var prop = documentProperties.getProperties();
-  return prop[0];
+  var keys = documentProperties.getKeys();
+  return keys[0];
 }
 

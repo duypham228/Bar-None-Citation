@@ -207,6 +207,10 @@
     <script>
       var citeStyle = 0;
 
+      function customAlert(info) {
+        alert(info);
+      }
+
       function searchClicked(style) {
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
@@ -215,6 +219,7 @@
             alert ("You need to choose whether you are citing a case, rule, or statute");
             break;
           case 1:
+            google.script.run.withSuccessHandler(customAlert).openSheet();
             var div = document.getElementById("resultsboxid");
             var resultString = div.innerHTML;
             div.innerHTML = 
