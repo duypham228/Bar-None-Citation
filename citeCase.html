@@ -105,19 +105,40 @@
         right: calc(47.55% - 90px);
         width: 13px;
         }
+        .tx-ellipse{
+        background-color: transparent;
+        bottom: calc(38.05% - 36px);
+        height: 13px;
+        position: absolute;
+        right: calc(40.55% + 60px);
+        width: 13px;
+        }
+        .tx{
+        background-color: transparent;
+        bottom: calc(36.91% - 39px);
+        color: black;
+        font-size: 15px;
+        height: 22px;
+        left: calc(40.92% + 10px);
+        line-height: 15px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 27px;
+        }
         .font-class-1 {
         font-family: 'Segoe UI', Helvetica, Arial, serif;
         font-style: normal;
         font-weight: 400;
         }
         .generate-citation {
-        bottom: calc(24.10% - 6px);
+        bottom: calc(24.10% - 30px);
         color: white;
         font-size: 16px;
         height: 23px;
         line-height: 16px;
         position: absolute;
-        right: calc(49.15% - 62px);
+        right: calc(49.15% - 60px);
         text-align: left;
         white-space: nowrap;
         width: 126px;
@@ -247,10 +268,10 @@
         }
         .submit-rectangle {
         background-color: blue;
-        bottom: calc(22.46% - 11px);
+        bottom: calc(22.46% - 30px);
         height: 45px;
         position: absolute;
-        right: calc(49.18% - 45px);
+        right: calc(49.18% - 60px);
         width: 145px;
         }
         .name-TB {
@@ -519,6 +540,8 @@
             <div class="le2d font-class-1">L.E.2d</div>
             <input type="radio" class="fed-ellipse" name="court-reporter" value="F.">
             <div class="fed font-class-1">F.</div>
+            <input type="radio" class="tx-ellipse" name="court-reporter" value="S.W.3d">
+            <div class="tx font-class-1">S.W.3d</div>
             <!------------------------Submit Button-------------------------------------------------->
             <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">
         </div>
