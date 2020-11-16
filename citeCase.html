@@ -431,6 +431,25 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
+        //usCite, sctCite, ledCite, term, caseName
+      var scCases = [["329 U.S. 1", "67 S.Ct. 6", "91 L.Ed. 3", "1946", "HALLIBURTON OIL WELL CEMENTING CO. v. WALKER"],
+                      ["444 U.S. 507","100 S.Ct. 763","62 L.Ed.2d 704","1979", "SNEPP v. UNITED STATES"],
+                      ["530 U.S. 290", "120 S.Ct. 2266", "147 L.Ed.2d 295", "1999", "SANTA FE INDEPENDENT SCHOOL DISTRICT v. JANE DOE"],
+                      ["575 U.S. 480", "135 S.Ct. 1645","191 L.Ed.2d 607","2014","MACH MINING, LLC, v. EQUAL EMPLOYMENT OPPORTUNITY COMMISSION"],
+                      ["", "140 S.Ct. 2019", "207 L.Ed.2d 951", "2019", "TRUMP v. MAZARS USA, LLP"]];
+      //circuit court, fCite(volume F. page), name, year
+      var fedCases = [["3d Cir.", "350 F. 13", "CARDONICK, CAROL v. STELLER, ALEXIS", "1988"],
+                      ["9d Cir.", "360 F. 2", "GEORGE v. LONG BEACH CITY", "1991"],
+                      ["9d Cir.", "310 F. 2", "FIREMANS FUND INS v. COMPANIA MEXICA", "1991"],
+                      ["4d Cir.", "220 F. 1345", "USA v. LEWIS, ET AL", "1992"],
+                      ["4d Cir.", "365 F. 1332", "PARRISH v. WAL-MART STORES", "1992"]];
+      //court, fCite(volume F. page), name, year
+      var texCases = [["Tex. App.—Waco", "228 S.W.3d 292", "CURRY v. STATE", "2007"],
+                      ["Tex. App. – Houston [1st Dist.]", "893 S.W.3d 559", "VILLERREAL v. STATE", "1994"],
+                      ["Tex. Crim. App.", "138 S.W.3d 334", "MENDEZ v. STATE", "2004"],
+                      ["Tex.", "142 S.W.3d 310", "CITY OF DALLAS v. JENNINGS", "2004"],
+                      ["Tex.App.—Houston [14th Dist.]", "57 S.W.3d 646 ", "GOODIE v. HOUSTON INDEPENDENT SCHOOL DIST", "2001"]];
+
         function generateCitation(){
             var citation;
             //document.getElementById("testName").setAttribute("placeholder", result);
@@ -457,8 +476,7 @@
             var court = document.getElementById("court").value;
 
             citation = citeCase(name, volume, reporter, page, year, style, court);
-            document.getElementById("citation").value = citation;
-            
+            document.getElementById("citation").value = citation; 
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){
@@ -494,9 +512,14 @@
                     break;
             }
         }
+        
+        function intializeParams(){
+            params = google.script.run.getDataFromDialog();
+            alert(params[0]);
+        }
     </script>
 </head>
-<body>
+<body onLoad="initializeParams()">
     <div class="rectangle-1 border-class-1">
         <div class="group-18">
             <div class="headerRectangle">

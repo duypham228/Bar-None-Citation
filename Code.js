@@ -103,15 +103,15 @@ DocumentApp.getUi()
 //   return returnString;
 // }
 
-function setDataFromSideBar() {
+function setDataFromSideBar(params) {
    var documentProperties = PropertiesService.getDocumentProperties();
-   documentProperties.setProperty('Name', 'Duy');
+   documentProperties.setProperty('params', params);
 }
 
 function getDataFromDialog() {
   var documentProperties = PropertiesService.getDocumentProperties();
-  var keys = documentProperties.getKeys();
-  return keys[0];
+  var keys = documentProperties.getProperty('params');
+  return keys;
 }
 
 function setCitation(citation){
@@ -129,3 +129,4 @@ function getCitation() {
   return citation;
 }
 
+//search functions
