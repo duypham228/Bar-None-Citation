@@ -352,6 +352,8 @@
                 citation ="Tex. "+code+" \u00a7 "+sect+" ("+year+")";
                 break;
             }
+            google.script.run.setCitation(citation);
+            return citation;
         }
 
         function changeStyle(style){

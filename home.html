@@ -206,11 +206,12 @@
     </style>
     <script>
       var citeStyle = 0;
-
       var recentCitations = [];
+
       function addCitation(){
-        var citation = google.script.run(getCitation());
+        var citation = google.script.run.getCitation();
         recentCitations.push(citation);
+        alert(citation);
       }
 
       function customAlert(info) {
@@ -234,12 +235,13 @@
             //alert(test);
             break;
           case 1:
-            google.script.run.withSuccessHandler(customAlert).openSheet();
+            // google.script.run.withSuccessHandler(customAlert).openSheet();
             var div = document.getElementById("resultsboxid");
             var resultString = div.innerHTML;
+            //withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar()"
             div.innerHTML = 
-            `<ul>
-            <li><input type="button" value="Case 1" onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar()"></li>
+            `<ul> 
+            <li><input type="button" value="Case 1" onclick="google.script.run.showCaseDialog()"></li>
             <li><input type="button" value="Case 2" onclick="google.script.run.showCaseDialog()"></li>
             <li><input type="button" value="Case 3" onclick="google.script.run.showCaseDialog()"></li>
             </ul>`;
@@ -268,8 +270,16 @@
       }  
 
       function iconClicked() {
+        addCitation();
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Recent Citations:';
+        var resultString = document.getElementById("resultsboxid").innerHTML;
+        resultString = "<ul>";
+        var i;
+        for(i in recentCitations){
+          resultString +="<li>" + i + "</li>";
+        }
+        resultString+="</ul>";
       }
 
       function generalClicked (index) {

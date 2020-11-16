@@ -388,8 +388,8 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        function generateCitation(result){
-            var citation = result;
+        function generateCitation(){
+            var citation;
             //document.getElementById("testName").setAttribute("placeholder", result);
             var style = document.getElementById("sty").innerHTML.substr(7);
             if(style[0] == 'S'){
@@ -417,6 +417,7 @@
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){
+            var citation;
             switch(style){
                 case "SC":
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
@@ -428,7 +429,7 @@
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
                 break;
             }
-            google.script.run(setCitation(citation));
+            google.script.run.setCitation();
             return citation;
         }
 
@@ -493,7 +494,7 @@
             <input type="radio" class="le2d-ellipse" name="court-reporter" value="L.E.2d">
             <div class="le2d font-class-1">L.E.2d</div>
             <!------------------------Submit Button-------------------------------------------------->
-            <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick=";google.script.run.withSuccessHandler(generateCitation).getDataFromDialog();">
+            <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">
         </div>
     </div>
 </body>
