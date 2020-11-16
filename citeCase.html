@@ -48,6 +48,18 @@
         white-space: nowrap;
         width: 150px;
         }
+        #citation {
+        bottom: -40px;
+        color: black;
+        font-size: 15px;
+        height: 22px;
+        left: 20px;
+        line-height: 15px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 330px;
+        }
         .court-reporter {
         background-color: transparent;
         bottom: calc(44.58% - 10px);
@@ -204,6 +216,27 @@
         top: calc(45.62% - 14px);
         width: 73px;
         }
+        .court{
+        background-color: transparent;
+        color: black;
+        font-size: 15px;
+        height: 22px;
+        line-height: 15px;
+        position: absolute;
+        right: calc(49.85% - 18px);
+        text-align: left;
+        top: calc(46.16% - 10px);
+        white-space: nowrap;
+        width: 37px;
+        }
+        .court-TB{
+        background-color: white;
+        height: 31px;
+        position: absolute;
+        right: calc(28.86% - 35px);
+        top: calc(45.62% - 14px);
+        width: 80px;
+        }
         .submit-rectangle {
         background-color: blue;
         bottom: calc(22.46% - 11px);
@@ -355,9 +388,32 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        function generateCitation(resutl){
-            var citation = resutl;
-            document.getElementById("testName").setAttribute("placeholder", resutl);
+        function generateCitation(result){
+            var citation = result;
+            //document.getElementById("testName").setAttribute("placeholder", result);
+            var style = document.getElementById("sty").innerHTML.substr(7);
+            if(style[0] == 'S'){
+                style = "SC";
+            }
+            else if(style[0] == 'T'){
+                style = "TX";
+            }
+            else{
+                style = "FED";
+            }
+            var name = document.getElementById("testName").value;
+            var reporter;
+            var elements = document.getElementsByName("court-reporter"); 
+            for(i = 0; i < elements.length; i++) { 
+                if(elements[i].checked) 
+                    reporter = elements[i].value; 
+            }
+            var page = document.getElementById("pg").value;
+            var year = document.getElementById("year").value;
+            var volume = document.getElementById("vol").value;
+            var court = document.getElementById("court").value;
+
+            document.getElementById("citation").value = citeCase(name, volume, reporter, page, year, style, court);
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){
@@ -374,6 +430,7 @@
             }
             return citation;
         }
+
         function changeStyle(style){
             switch(style){
                 case 1:
@@ -398,6 +455,7 @@
             <div class="headerRectangle">
                 <div class="bar-none-citations font-class-1">Bar None Citations</div>
                 <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
+                <input type="text" class="font-class-1" id="citation" placeholder="citation will go here...">
                 <div class="x font-class-1">X</div>
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
@@ -416,20 +474,22 @@
             </div>
             <!------------------------Text Fields-------------------------------------------------->
             <div class="name font-class-1">Name:</div>
-            <input id="testName" type=text id= "name" class="name-TB border-class-1" name="name" placeholder="">
+            <input id="testName" type=text class="name-TB border-class-1" value="" name="name" placeholder="">
             <div class="page font-class-1">Page:</div>
-            <input type=text class="page-TB border-class-1" name="page" placeholder="">
+            <input type=text class="page-TB border-class-1" id="pg" name="page" placeholder="">
             <div class="volume font-class-1">Volume:</div>
-            <input type=text class="volume-TB border-class-1" name="page" placeholder="">
+            <input type=text class="volume-TB border-class-1" id="vol" name="page" placeholder="">
             <div class="year font-class-1">Year:</div>
-            <input type=text class="year-TB border-class-1" name="page" placeholder="">
+            <input type=text class="year-TB border-class-1" id="year" name="page" placeholder="">
+            <div class="court font-class-1">Court:</div>
+            <input type=text class="court-TB border-class-1" id="court" name="page" placeholder="">
             <!------------------------Radio Buttons-------------------------------------------------->
             <div class="court-reporter font-class-1">Court Reporter:</div>
-            <input type="radio" class="us-ellipse" name="court-reporter" value="US">
+            <input type="radio" class="us-ellipse" name="court-reporter" value="U.S.">
             <div class="us font-class-1">U.S.</div>
-            <input type="radio" class="sct-ellipse" name="court-reporter" value="SCt">
+            <input type="radio" class="sct-ellipse" name="court-reporter" value="S.Ct">
             <div class="s-ct font-class-1">S.Ct</div>
-            <input type="radio" class="le2d-ellipse" name="court-reporter" value="LE2d">
+            <input type="radio" class="le2d-ellipse" name="court-reporter" value="L.E.2d">
             <div class="le2d font-class-1">L.E.2d</div>
             <!------------------------Submit Button-------------------------------------------------->
             <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick=";google.script.run.withSuccessHandler(generateCitation).getDataFromDialog();">

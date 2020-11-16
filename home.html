@@ -212,11 +212,22 @@
       }
 
       function searchClicked(style) {
+
+        // var script = document.createElement('script');
+        // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+        // script.type = 'text/javascript';
+        // document.getElementsByTagName('head')[0].appendChild(script);
+        // var test;
+        // jQuery.ajax({ url: "https://github.com/realcadecon/barNoneCitationsFileRepo/blob/master/SCCases.xlsx?raw=true", type: 'get', datatype: 'xml', success: function(data) 
+        //                       { test = data; }, error: function(jqXHR, textStatus, errorThrow)
+        //                       { alert("Error: " + jqXHR['responseText']); } });
+
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         switch (style) {
           case 0:
             alert ("You need to choose whether you are citing a case, rule, or statute");
+            //alert(test);
             break;
           case 1:
             google.script.run.withSuccessHandler(customAlert).openSheet();
@@ -251,6 +262,7 @@
             break;
         }
       }  
+
       function iconClicked() {
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Recent Citations:';
