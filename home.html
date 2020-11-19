@@ -218,13 +218,13 @@
                       ["530 U.S. 290", "120 S.Ct. 2266", "147 L.Ed.2d 295", "1999", "SANTA FE INDEPENDENT SCHOOL DISTRICT v. JANE DOE"],
                       ["575 U.S. 480", "135 S.Ct. 1645","191 L.Ed.2d 607","2014","MACH MINING, LLC, v. EQUAL EMPLOYMENT OPPORTUNITY COMMISSION"],
                       ["", "140 S.Ct. 2019", "207 L.Ed.2d 951", "2019", "TRUMP v. MAZARS USA, LLP"]];
-      //circuit court, fCite(volume F. page), name, year
+      //circuit court, cite(volume F. page), name, year
       var fedCases = [["3d Cir.", "350 F. 13", "CARDONICK, CAROL v. STELLER, ALEXIS", "1988"],
                       ["9d Cir.", "360 F. 2", "GEORGE v. LONG BEACH CITY", "1991"],
                       ["9d Cir.", "310 F. 2", "FIREMANS FUND INS v. COMPANIA MEXICA", "1991"],
                       ["4d Cir.", "220 F. 1345", "USA v. LEWIS, ET AL", "1992"],
                       ["4d Cir.", "365 F. 1332", "PARRISH v. WAL-MART STORES", "1992"]];
-      //court, fCite(volume F. page), name, year
+      //court, cite(volume F. page), name, year
       var texCases = [["Tex. App.—Waco", "228 S.W.3d 292", "CURRY v. STATE", "2007"],
                       ["Tex. App. – Houston [1st Dist.]", "893 S.W.3d 559", "VILLERREAL v. STATE", "1994"],
                       ["Tex. Crim. App.", "138 S.W.3d 334", "MENDEZ v. STATE", "2004"],
@@ -395,6 +395,7 @@
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
+        let params = []
         switch (style) {
           case 0:
             alert ("You need to choose whether you are citing a case, rule, or statute");
@@ -413,16 +414,17 @@
             //div.innerHTML = '<ul style="list-style-type:none;">';
             var i; 
             for(i of scResults){
-              //let params = parseSupremeCourt(i);
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ scCases[i][4]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              params = parseSupremeCourt(i);
+              div.innerHTML += '<li><input type="button" value="'+ scCases[i][4]+
+                              '"onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, "scCase")"></li>';
             }
             for(i of txResults){
-              //let params = parseTexas(i);
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              //params = parseTexas(i);
+              div.innerHTML += '<li><input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></li>';
             }
             for(i of fedResults){
-              //let params = parseFederal(i);
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              //params = parseFederal(i);
+              div.innerHTML += '<li><input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></li>';
             }
             //div.innerHTML +="</ul>";
             break;
@@ -432,21 +434,11 @@
             var resultString = div.innerHTML;
             //div.innerHTML = '<ul style="list-style-type:none;">';
             for(i of statResults){
-              let params = parseStatutes(i);
+              params = parseStatutes(i);
               div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="google.script.run.showStatuteDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
             break;
-        //   case 3:
-        //     var div = document.getElementById("resultsboxid");
-        //     var resultString = div.innerHTML;
-        //     div.innerHTML = 
-        //     `<ul>
-        //     <li><input type="button" value="Case 1" onclick="google.script.run.showRuleDialog()"></li>
-        //     <li><input type="button" value="Case 2" onclick="google.script.run.showRuleDialog()"></li>
-        //     <li><input type="button" value="Case 3" onclick="google.script.run.showRuleDialog()"></li>
-        //     </ul>`;
-        //     break;
           }
       }  
 

@@ -103,14 +103,23 @@ DocumentApp.getUi()
 //   return returnString;
 // }
 
-function setDataFromSideBar(params) {
-   var documentProperties = PropertiesService.getDocumentProperties();
-   documentProperties.setProperty('params', params);
+function setDataFromSideBar(params, style) {
+  var documentProperties = PropertiesService.getDocumentProperties();
+  if(style == "statute"){ //title, code, sect, name, year
+    documentProperties.setProperties({'title': params[0], 'code': params[1], 'sect':params[2], 'name':params[3], 'year':params[4], 'style':style}, true);
+  }
+  else if(style == "caseSC"){ //usVol, usReporter, usPage, sctVol, sctReporter, sctPage, ledVol, ledReporter, ledPage, term, caseName
+    documentProperties.setProperties({'usVol': params[0], 'usReporter': params[1], 'usPage':params[2], 'sctVol': params[3], 'sctReporter': params[4], 'sctPage':params[5], 
+                                      'ledVol': params[6], 'ledReporter': params[7], 'ledPage':params[8], 'term':params[9], 'caseName':params[10], 'style':style}, true);
+  }
+  else{ //court, vol, reporter, page, name, year
+    documentProperties.setProperties({'court': params[0], 'vol': params[1], 'reporter': params[2], 'page': params[3], 'term':params[4], 'caseName':params[5], 'style':style}, true);
+  }
 }
 
 function getDataFromDialog() {
   var documentProperties = PropertiesService.getDocumentProperties();
-  var keys = documentProperties.getProperty('params');
+  var keys = documentProperties.getProperties(); 
   return keys;
 }
 

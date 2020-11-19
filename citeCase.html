@@ -514,8 +514,9 @@
         }
         
         function intializeParams(){
-            params = google.script.run.getDataFromDialog();
-            alert(params[0]);
+            var keys = google.script.run.getDataFromDialog();
+            alert('test');
+            alert(keys['style']);
         }
     </script>
 </head>
