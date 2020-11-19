@@ -415,16 +415,16 @@
             var i; 
             for(i of scResults){
               params = parseSupremeCourt(i);
-              div.innerHTML += '<li><input type="button" value="'+ scCases[i][4]+
-                              '"onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, "scCase")"></li>';
+              div.innerHTML += '<input type="button" value="'+ scCases[i][4]+
+                              '"onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, "scCase")"></br>';
             }
             for(i of txResults){
               //params = parseTexas(i);
-              div.innerHTML += '<li><input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></li>';
+              div.innerHTML += '<input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             for(i of fedResults){
               //params = parseFederal(i);
-              div.innerHTML += '<li><input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></li>';
+              div.innerHTML += '<input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
             break;
@@ -434,7 +434,8 @@
             var resultString = div.innerHTML;
             //div.innerHTML = '<ul style="list-style-type:none;">';
             for(i of statResults){
-              params = parseStatutes(i);
+              let params = parseStatutes(i);
+              div.innerHTML = "";
               div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="google.script.run.showStatuteDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
@@ -455,7 +456,6 @@
         resultString+="</ul>";
         // alert (resultString);
         var div = document.getElementById("resultsboxid");
-        div.innerHTML = "";
         div.innerHTML = resultString;
       }
 
