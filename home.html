@@ -434,7 +434,7 @@
             var resultString = div.innerHTML;
             //div.innerHTML = '<ul style="list-style-type:none;">';
             for(i of statResults){
-              let params = parseStatutes(i);
+              params = parseStatutes(i);
               div.innerHTML = "";
               div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="google.script.run.showStatuteDialog()"></br>';
             }
