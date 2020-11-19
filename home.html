@@ -203,6 +203,10 @@
         min-width: 200px;
         box-sizing: border-box;
         padding: 10px 10px;
+        background: '#f1f1f1';
+      }
+      .search-results-button:active {
+        background: '#A9A9A9';
       }
       :root {
         --alto: rgba(226,218,218,1.0);
@@ -421,30 +425,30 @@
             for(i of scResults){
               style = "caseSC"
               params = parseSupremeCourt(i);
-              div.innerHTML += '<input type="button" value="'+ scCases[i][4] +
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ scCases[i][4] +
                               '"onclick="google.script.run.initParams('+params+', '+style+')"></br>';
             }
             for(i of txResults){
               //params = parseTexas(i);
               style = "caseTX"
-              div.innerHTML += '<input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             for(i of fedResults){
               //params = parseFederal(i);
               style = "caseFED"
-              div.innerHTML += '<input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
             break;
           case 2:
             var statResults = searchStatutes(search);
             var div = document.getElementById("resultsboxid");
+            div.innerHTML = "";
             var resultString = div.innerHTML;
             //div.innerHTML = '<ul style="list-style-type:none;">';
             for(i of statResults){
               style = "statute"
               params = parseStatutes(i);
-              div.innerHTML = "";
               div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="google.script.run.showStatuteDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
