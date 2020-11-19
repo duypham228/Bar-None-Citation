@@ -381,7 +381,11 @@
           }
         return matches;
       }
-
+      
+      function initParams(params, style){
+        google.script.run.setDataFromSideBar(params, style);
+        google.script.run.showCaseDialog();
+      }
 
       function searchClicked(style) {
         // var script = document.createElement('script');
@@ -410,20 +414,24 @@
             var div = document.getElementById("resultsboxid");
             div.innerHTML = "";
             var resultString = div.innerHTML;
-            //withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params)"></li>
+            //withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, style)"></br>'
             //div.innerHTML = '<ul style="list-style-type:none;">';
             var i; 
+            let style = "";
             for(i of scResults){
+              style = "caseSC"
               params = parseSupremeCourt(i);
-              div.innerHTML += '<input type="button" value="'+ scCases[i][4]+
-                              '"onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, "scCase")"></br>';
+              div.innerHTML += '<input type="button" value="'+ scCases[i][4] +
+                              '"onclick="google.script.run.initParams('+params+', '+style+')"></br>';
             }
             for(i of txResults){
               //params = parseTexas(i);
+              style = "caseTX"
               div.innerHTML += '<input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             for(i of fedResults){
               //params = parseFederal(i);
+              style = "caseFED"
               div.innerHTML += '<input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
@@ -434,6 +442,7 @@
             var resultString = div.innerHTML;
             //div.innerHTML = '<ul style="list-style-type:none;">';
             for(i of statResults){
+              style = "statute"
               params = parseStatutes(i);
               div.innerHTML = "";
               div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="google.script.run.showStatuteDialog()"></br>';
