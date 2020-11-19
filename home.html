@@ -203,6 +203,10 @@
         min-width: 200px;
         box-sizing: border-box;
         padding: 10px 10px;
+        background: '#f1f1f1';
+      }
+      .search-results-button:active {
+        background: '#A9A9A9';
       }
       :root {
         --alto: rgba(226,218,218,1.0);
@@ -415,16 +419,16 @@
             var i; 
             for(i of scResults){
               params = parseSupremeCourt(i);
-              div.innerHTML += '<input type="button" value="'+ scCases[i][4]+
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ scCases[i][4]+
                               '"onclick="google.script.run.withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, "scCase")"></br>';
             }
             for(i of txResults){
               //params = parseTexas(i);
-              div.innerHTML += '<input type="button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             for(i of fedResults){
               //params = parseFederal(i);
-              div.innerHTML += '<input type="button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
             }
             //div.innerHTML +="</ul>";
             break;
