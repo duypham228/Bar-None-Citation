@@ -247,36 +247,36 @@
           //US values
             usCite = scCases[index][0];
             var values = usCite.split(" ")
-            params.push(values[0]);
-            params.push(values[values.length-1]);
+            params.push(values[0]); //volume
             usreporter = "";
             for(var i = 1;i<values.length-1;i++){
               usreporter += values[i]
               if(i!=values.length-2){usreporter+=" ";}
             }
             params.push(usreporter);
+            params.push(values[values.length-1]); //page
           //S.CT Values
             scCite = scCases[index][1];
             values = scCite.split(" ")
             params.push(values[0]);
-            params.push(values[values.length-1]);
             screporter = "";
             for(var i = 1;i<values.length-1;i++){
               screporter += values[i]
               if(i!=values.length-2){screporter+=" ";}
             }
             params.push(screporter);
+            params.push(values[values.length-1]);
           //L.Ed Values
             ledCite = scCases[index][2];
             values = ledCite.split(" ")
             params.push(values[0]);
-            params.push(values[values.length-1]);
             ledreporter = "";
             for(var i = 1;i<values.length-1;i++){
               ledreporter += values[i]
               if(i!=values.length-2){ledreporter+=" ";}
             }
             params.push(ledreporter);
+            params.push(values[values.length-1]);
             params.push(scCases[index][3]);
             params.push(scCases[index][4]);
             return params;
@@ -386,9 +386,28 @@
         return matches;
       }
       
-      function initParams(params, style){
-        google.script.run.setDataFromSideBar(params, style);
-        google.script.run.showCaseDialog();
+      function initParams(i, style){
+        let params = []
+        if(style == "caseSC"){
+          params = parseSupremeCourt(i);
+          google.script.run.setDataFromSideBar(params, style);
+          google.script.run.showCaseDialog();
+        }
+        else if(style == "caseTX"){
+          params = parseTexas(i);
+          google.script.run.setDataFromSideBar(params, style);
+          google.script.run.showCaseDialog();
+        }
+        else if(style == "caseFED"){
+          params = parseFederal(i);
+          google.script.run.setDataFromSideBar(params, style);
+          google.script.run.showCaseDialog();
+        }
+        else{
+          params = parseStatutes(i);
+          google.script.run.setDataFromSideBar(params, style);
+          google.script.run.showStatuteDialog();
+        }
       }
 
       function searchClicked(style) {
@@ -403,7 +422,6 @@
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
-        let params = []
         switch (style) {
           case 0:
             alert ("You need to choose whether you are citing a case, rule, or statute");
@@ -418,27 +436,20 @@
             var div = document.getElementById("resultsboxid");
             div.innerHTML = "";
             var resultString = div.innerHTML;
-            //withSuccessHandler(function() { google.script.run.showCaseDialog(); }).setDataFromSideBar(params, style)"></br>'
-            //div.innerHTML = '<ul style="list-style-type:none;">';
             var i; 
             let style = "";
             for(i of scResults){
               style = "caseSC"
-              params = parseSupremeCourt(i);
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ scCases[i][4] +
-                              '"onclick="google.script.run.initParams('+params+', '+style+')"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ scCases[i][4] +'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
             }
             for(i of txResults){
-              //params = parseTexas(i);
               style = "caseTX"
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ texCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ texCases[i][2]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
             }
             for(i of fedResults){
-              //params = parseFederal(i);
               style = "caseFED"
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ fedCases[i][2]+'" onclick="google.script.run.showCaseDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ fedCases[i][2]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
             }
-            //div.innerHTML +="</ul>";
             break;
           case 2:
             var statResults = searchStatutes(search);
@@ -448,8 +459,7 @@
             //div.innerHTML = '<ul style="list-style-type:none;">';
             for(i of statResults){
               style = "statute"
-              params = parseStatutes(i);
-              div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="google.script.run.showStatuteDialog()"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
             }
             //div.innerHTML +="</ul>";
             break;
