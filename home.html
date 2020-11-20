@@ -422,9 +422,11 @@
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
+        var resultString = "";
+        var i;
         switch (style) {
           case 0:
-            alert ("You need to choose whether you are citing a case, rule, or statute");
+            alert ("You need to choose whether you are citing a case or statute");
             //alert(test);
             break;
           case 1:
@@ -433,10 +435,9 @@
             var fedResults = searchFederal(search); 
 
             // google.script.run.withSuccessHandler(customAlert).openSheet();
-            var div = document.getElementById("resultsboxid");
+            div = document.getElementById("resultsboxid");
             div.innerHTML = "";
-            var resultString = div.innerHTML;
-            var i; 
+            resultString = div.innerHTML; 
             let style = "";
             for(i of scResults){
               style = "caseSC"
@@ -453,15 +454,13 @@
             break;
           case 2:
             var statResults = searchStatutes(search);
-            var div = document.getElementById("resultsboxid");
+            div = document.getElementById("resultsboxid");
             div.innerHTML = "";
-            var resultString = div.innerHTML;
-            //div.innerHTML = '<ul style="list-style-type:none;">';
+            resultString = div.innerHTML;
             for(i of statResults){
               style = "statute"
               div.innerHTML += '<input type="button" class="search-results-button" value="'+ statutes[i][3]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
             }
-            //div.innerHTML +="</ul>";
             break;
           }
       }  

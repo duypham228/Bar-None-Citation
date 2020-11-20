@@ -105,6 +105,7 @@ DocumentApp.getUi()
 
 function setDataFromSideBar(params, style) {
   var documentProperties = PropertiesService.getDocumentProperties();
+  Logger.log(params);
   if(style == "statute"){ //title, code, sect, name, year
     documentProperties.setProperties({'title': params[0], 'code': params[1], 'sect':params[2], 'name':params[3], 'year':params[4], 'style':style}, true);
   }
@@ -119,7 +120,8 @@ function setDataFromSideBar(params, style) {
 
 function getDataFromDialog() {
   var documentProperties = PropertiesService.getDocumentProperties();
-  var keys = documentProperties.getProperties(); 
+  var keys = documentProperties.getProperties();
+  Logger.log(keys); 
   return keys;
 }
 
