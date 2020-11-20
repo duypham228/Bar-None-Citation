@@ -36,7 +36,7 @@ function showDialog() {
     .setWidth(400)
     .setHeight(600);
   DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
-    .showModalDialog(html, 'Pop Up');
+    .showModalDialog(html, 'Citation Details');
     var test = "test string \u00a7";
     console.log(test);
 }
@@ -47,7 +47,7 @@ function showCaseDialog() {
   .setWidth(400)
   .setHeight(600);
 DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
-  .showModalDialog(html, 'Pop Up');
+  .showModalDialog(html, 'Citation Details');
   var test = "test string \u00a7";
   console.log(test);
 }
@@ -58,7 +58,7 @@ function showStatuteDialog() {
   .setWidth(400)
   .setHeight(600);
 DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
-  .showModalDialog(html, 'Pop Up');
+  .showModalDialog(html, 'Citation Details');
   var test = "test string \u00a7";
   console.log(test);
 }
