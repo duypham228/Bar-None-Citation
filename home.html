@@ -446,29 +446,27 @@
             // google.script.run.withSuccessHandler(customAlert).openSheet();
             div.innerHTML = "";
             resultString = div.innerHTML; 
-            let style = "";
+            let caseStyle = "";
             for(i of scResults){
-              style = "caseSC"
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ scCases[i][4] +'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
+              caseStyle = "caseSC";
+              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ scCases[i][4] +'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
             }
             for(i of txResults){
-              style = "caseTX"
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ texCases[i][2]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
+              caseStyle = "caseTX";
+              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ texCases[i][2]+'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
             }
             for(i of fedResults){
-              style = "caseFED"
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ fedCases[i][2]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
+              caseStyle = "caseFED";
+              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ fedCases[i][2]+'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
             }
             break;
           case 2:
             var statResults = searchStatutes(search);
-            alert(statResults);
             width = longestStringStatute(statResults, statutes);
             div.innerHTML = "";
             resultString = div.innerHTML;
             for(i of statResults){
-              style = "statute"
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ statutes[i][3]+'" onclick="initParams(\''+i+'\', \''+style+'\')"></br>';
+              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ statutes[i][3]+'" onclick="initParams(\''+i+'\', \''+"statute"+'\')"></br>';
             }
             break;
           }
