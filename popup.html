@@ -48,18 +48,6 @@
         white-space: nowrap;
         width: 150px;
         }
-        #citation {
-        bottom: -40px;
-        color: black;
-        font-size: 15px;
-        height: 22px;
-        left: 20px;
-        line-height: 15px;
-        position: absolute;
-        text-align: left;
-        white-space: nowrap;
-        width: 330px;
-        }
         .court-reporter {
         background-color: transparent;
         bottom: calc(44.58% - 10px);
@@ -97,48 +85,19 @@
         right: calc(47.55% - 13px);
         width: 13px;
         }
-        .fed-ellipse{
-        background-color: transparent;
-        bottom: calc(38.05% - 5px);
-        height: 13px;
-        position: absolute;
-        right: calc(47.55% - 90px);
-        width: 13px;
-        }
-        .tx-ellipse{
-        background-color: transparent;
-        bottom: calc(38.05% - 36px);
-        height: 13px;
-        position: absolute;
-        right: calc(40.55% + 60px);
-        width: 13px;
-        }
-        .tx{
-        background-color: transparent;
-        bottom: calc(36.91% - 39px);
-        color: black;
-        font-size: 15px;
-        height: 22px;
-        left: calc(40.92% + 10px);
-        line-height: 15px;
-        position: absolute;
-        text-align: left;
-        white-space: nowrap;
-        width: 27px;
-        }
         .font-class-1 {
         font-family: 'Segoe UI', Helvetica, Arial, serif;
         font-style: normal;
         font-weight: 400;
         }
         .generate-citation {
-        bottom: calc(24.10% - 30px);
+        bottom: calc(24.10% - 6px);
         color: white;
         font-size: 16px;
         height: 23px;
         line-height: 16px;
         position: absolute;
-        right: calc(49.15% - 60px);
+        right: calc(49.15% - 62px);
         text-align: left;
         white-space: nowrap;
         width: 126px;
@@ -245,33 +204,12 @@
         top: calc(45.62% - 14px);
         width: 73px;
         }
-        .court{
-        background-color: transparent;
-        color: black;
-        font-size: 15px;
-        height: 22px;
-        line-height: 15px;
-        position: absolute;
-        right: calc(49.85% - 18px);
-        text-align: left;
-        top: calc(46.16% - 10px);
-        white-space: nowrap;
-        width: 37px;
-        }
-        .court-TB{
-        background-color: white;
-        height: 31px;
-        position: absolute;
-        right: calc(28.86% - 35px);
-        top: calc(45.62% - 14px);
-        width: 80px;
-        }
         .submit-rectangle {
         background-color: blue;
-        bottom: calc(22.46% - 30px);
+        bottom: calc(22.46% - 11px);
         height: 45px;
         position: absolute;
-        right: calc(49.18% - 60px);
+        right: calc(49.18% - 45px);
         width: 145px;
         }
         .name-TB {
@@ -328,20 +266,6 @@
         white-space: nowrap;
         width: 27px;
         }
-        .fed {
-        background-color: transparent;
-        bottom: calc(36.91% - 8px);
-        color: black;
-        font-size: 15px;
-        height: 22px;
-        left: calc(21.92% + 205px);
-        line-height: 15px;
-        position: absolute;
-        text-align: left;
-        white-space: nowrap;
-        width: 27px;
-        }
-        
         .volume {
         background-color: transparent;
         color: black;
@@ -354,6 +278,19 @@
         top: calc(36.00% - 8px);
         white-space: nowrap;
         width: 55px;
+        }
+        .x {
+        background-color: transparent;
+        color: white;
+        font-size: 15px;
+        height: 22px;
+        line-height: 15px;
+        position: absolute;
+        right: -2px;
+        text-align: left;
+        top: 10px;
+        white-space: nowrap;
+        width: 11px;
         }
         .year {
         background-color: transparent;
@@ -418,130 +355,40 @@
         .dropdown:hover .dd-content {display: block;}
     </style>
     <script>
-        //usCite, sctCite, ledCite, term, caseName
-      var scCases = [["329 U.S. 1", "67 S.Ct. 6", "91 L.Ed. 3", "1946", "HALLIBURTON OIL WELL CEMENTING CO. v. WALKER"],
-                      ["444 U.S. 507","100 S.Ct. 763","62 L.Ed.2d 704","1979", "SNEPP v. UNITED STATES"],
-                      ["530 U.S. 290", "120 S.Ct. 2266", "147 L.Ed.2d 295", "1999", "SANTA FE INDEPENDENT SCHOOL DISTRICT v. JANE DOE"],
-                      ["575 U.S. 480", "135 S.Ct. 1645","191 L.Ed.2d 607","2014","MACH MINING, LLC, v. EQUAL EMPLOYMENT OPPORTUNITY COMMISSION"],
-                      ["", "140 S.Ct. 2019", "207 L.Ed.2d 951", "2019", "TRUMP v. MAZARS USA, LLP"]];
-      //circuit court, fCite(volume F. page), name, year
-      var fedCases = [["3d Cir.", "350 F. 13", "CARDONICK, CAROL v. STELLER, ALEXIS", "1988"],
-                      ["9d Cir.", "360 F. 2", "GEORGE v. LONG BEACH CITY", "1991"],
-                      ["9d Cir.", "310 F. 2", "FIREMANS FUND INS v. COMPANIA MEXICA", "1991"],
-                      ["4d Cir.", "220 F. 1345", "USA v. LEWIS, ET AL", "1992"],
-                      ["4d Cir.", "365 F. 1332", "PARRISH v. WAL-MART STORES", "1992"]];
-      //court, fCite(volume F. page), name, year
-      var texCases = [["Tex. App.—Waco", "228 S.W.3d 292", "CURRY v. STATE", "2007"],
-                      ["Tex. App. – Houston [1st Dist.]", "893 S.W.3d 559", "VILLERREAL v. STATE", "1994"],
-                      ["Tex. Crim. App.", "138 S.W.3d 334", "MENDEZ v. STATE", "2004"],
-                      ["Tex.", "142 S.W.3d 310", "CITY OF DALLAS v. JENNINGS", "2004"],
-                      ["Tex.App.—Houston [14th Dist.]", "57 S.W.3d 646 ", "GOODIE v. HOUSTON INDEPENDENT SCHOOL DIST", "2001"]];
-
-        function generateCitation(){
-            var citation;
-            //document.getElementById("testName").setAttribute("placeholder", result);
-            var style = document.getElementById("sty").innerHTML.substr(7);
-            if(style[0] == 'S'){
-                style = "SC";
-            }
-            else if(style[0] == 'T'){
-                style = "TX";
-            }
-            else{
-                style = "FED";
-            }
-            var name = document.getElementById("testName").value;
-            var reporter;
-            var elements = document.getElementsByName("court-reporter"); 
-            for(i = 0; i < elements.length; i++) { 
-                if(elements[i].checked) 
-                    reporter = elements[i].value; 
-            }
-            var page = document.getElementById("pg").value;
-            var year = document.getElementById("year").value;
-            var volume = document.getElementById("vol").value;
-            var court = document.getElementById("court").value;
-
-            citation = citeCase(name, volume, reporter, page, year, style, court);
-            document.getElementById("citation").value = citation;
-        }
-
-        function citeCase(name, vol, reporter, page, year, style, court){
-            var citation;
+        function generateCitation(name, vol, reporter, page, year, style){
+            alert ("Clicking the blue button will generate the citation in the whitespace below");
+            var citation = "";
             switch(style){
                 case "SC":
                 citation = name +", "+vol+" "+reporter+" "+page+" ("+year+")";
                 break;
                 case "TX":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
+                citation = "";
                 break;
                 case "FED":
-                citation = name +", "+vol+" "+reporter+" "+page+" ("+court+" "+year+")";
+                citation = "";
                 break;
             }
-            google.script.run.setCitation(citation);
             return citation;
-        }
-
-        function changeStyle(style){
-            switch(style){
-                case 1:
-                    var div = document.getElementById("sty");
-                    div.innerHTML = "Style: Supreme Court Cases";
-                    break;
-                case 2:
-                    var div = document.getElementById("sty");
-                    div.innerHTML = "Style: Texas Court Cases";
-                    break;
-                case 3:
-                    var div = document.getElementById("sty");
-                    div.innerHTML = "Style: Federal Court Cases";
-                    break;
-            }
-        }
-        function onSuccessAutoFill(result){
-            // alert(result['caseName']);
-            if (result['style'] == "caseSC") {
-                changeStyle(1);
-                
-                document.getElementById("vol").setAttribute("value", result['usVol']);
-                document.getElementById("pg").setAttribute("value", result['usPage']);
-            }else if (result['style'] == "caseTX") {
-                changeStyle(2);
-                document.getElementById("vol").setAttribute("value", result['vol']);
-            } else {
-                changeStyle(3);
-                document.getElementById("vol").setAttribute("value", result['vol']);
-            }
-            document.getElementById("testName").setAttribute("value", result['caseName']);
-            
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            
-        }
-        function initializeParams(){
-            google.script.run.withSuccessHandler(onSuccessAutoFill).getDataFromDialog();
         }
     </script>
 </head>
-<body onLoad="initializeParams()">
+<body>
     <div class="rectangle-1 border-class-1">
         <div class="group-18">
             <div class="headerRectangle">
                 <div class="bar-none-citations font-class-1">Bar None Citations</div>
                 <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
-                <input type="text" class="font-class-1" id="citation" placeholder="citation will go here...">     
+                <div class="x font-class-1">X</div>
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
             <!------------------------Drop Down Menu-------------------------------------------------->
             <div class="ddMenu dropdown">
-                <button id="sty" class="court-style font-class-1 dd-btn">Style: </button>
+                <button class="court-style font-class-1 dd-btn">Style: </button>
                 <div class="dd-content">
-                    <a class="font-class-1" id="SC" onclick="changeStyle(1)" href="#">Supreme Court Cases</a>
-                    <a class="font-class-1" id="TX" onclick="changeStyle(2)" href="#">Texas Court Case</a>
-                    <a class="font-class-1" id="FED" onclick="changeStyle(3)" href="#">Federal Court Case</a>
+                    <a class="font-class-1" href="#">Link 1</a>
+                    <a class="font-class-1" href="#">Link 2</a>
+                    <a class="font-class-1" href="#">Link 3</a>
                 </div>
                 <div class="group-6">
                 <img class="polygon-1" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/polygon-1@1x.png"/>
@@ -550,27 +397,21 @@
             </div>
             <!------------------------Text Fields-------------------------------------------------->
             <div class="name font-class-1">Name:</div>
-            <input id="testName" type=text class="name-TB border-class-1" value="" name="name" placeholder="">
+            <input type=text class="name-TB border-class-1" name="name" placeholder="">
             <div class="page font-class-1">Page:</div>
-            <input type=text class="page-TB border-class-1" id="pg" name="page" placeholder="">
+            <input type=text class="page-TB border-class-1" name="page" placeholder="">
             <div class="volume font-class-1">Volume:</div>
-            <input type=text class="volume-TB border-class-1" id="vol" name="page" placeholder="">
+            <input type=text class="volume-TB border-class-1" name="page" placeholder="">
             <div class="year font-class-1">Year:</div>
-            <input type=text class="year-TB border-class-1" id="year" name="page" placeholder="">
-            <div class="court font-class-1">Court:</div>
-            <input type=text class="court-TB border-class-1" id="court" name="page" placeholder="">
+            <input type=text class="year-TB border-class-1" name="page" placeholder="">
             <!------------------------Radio Buttons-------------------------------------------------->
             <div class="court-reporter font-class-1">Court Reporter:</div>
-            <input type="radio" class="us-ellipse" name="court-reporter" value="U.S.">
+            <input type="radio" class="us-ellipse" name="court-reporter" value="US">
             <div class="us font-class-1">U.S.</div>
-            <input type="radio" class="sct-ellipse" name="court-reporter" value="S.Ct">
+            <input type="radio" class="sct-ellipse" name="court-reporter" value="SCt">
             <div class="s-ct font-class-1">S.Ct</div>
-            <input type="radio" class="le2d-ellipse" name="court-reporter" value="L.E.2d">
+            <input type="radio" class="le2d-ellipse" name="court-reporter" value="LE2d">
             <div class="le2d font-class-1">L.E.2d</div>
-            <input type="radio" class="fed-ellipse" name="court-reporter" value="F.">
-            <div class="fed font-class-1">F.</div>
-            <input type="radio" class="tx-ellipse" name="court-reporter" value="S.W.3d">
-            <div class="tx font-class-1">S.W.3d</div>
             <!------------------------Submit Button-------------------------------------------------->
             <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">
         </div>
