@@ -503,11 +503,8 @@
         }
         else if(style == "caseTX"){
           params = parseTexas(i);
-          alert('here');
           google.script.run.setDataFromSideBar(params, style);
-          alert('here 2');
           google.script.run.showCaseDialog();
-          alert('here 3');
         }
         else if(style == "caseFED"){
           params = parseFederal(i);
