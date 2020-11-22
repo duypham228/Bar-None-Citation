@@ -479,10 +479,12 @@
             }
             break;
           case 2:
-            alert('test');
             var statResults = searchStatutes(search);
+            alert('test 1');
             width = longestStringStatute(statResults, statutes);
+            alert('test 2');
             div = document.getElementById("resultsboxid");
+            alert('test 3');
             div.innerHTML = "";
             resultString = div.innerHTML;
             for(i of statResults){
