@@ -240,80 +240,87 @@
                       ["52", "U.S.C.","10701", "ENFORCEMENT OF TWENTY-SIXTH AMENDMENT", "1975"],
                       ["54", "U.S.C", "320201","NATIONAL MONUMENTS", "2014"]];
 
-        function parseSupremeCourt(index){
+      function parseSupremeCourt(index){
           let params = [];
           //US values
-            usCite = scCases[index][0];
-            var values = usCite.split(" ")
-            params.push(values[0]); //volume
-            usreporter = "";
-            for(var i = 1;i<values.length-1;i++){
-              usreporter += values[i]
-              if(i!=values.length-2){usreporter+=" ";}
-            }
-            params.push(usreporter);
-            params.push(values[values.length-1]); //page
-          //S.CT Values
-            scCite = scCases[index][1];
-            values = scCite.split(" ")
-            params.push(values[0]);
-            screporter = "";
-            for(var i = 1;i<values.length-1;i++){
-              screporter += values[i]
-              if(i!=values.length-2){screporter+=" ";}
-            }
-            params.push(screporter);
-            params.push(values[values.length-1]);
-          //L.Ed Values
-            ledCite = scCases[index][2];
-            values = ledCite.split(" ")
-            params.push(values[0]);
-            ledreporter = "";
-            for(var i = 1;i<values.length-1;i++){
-              ledreporter += values[i]
-              if(i!=values.length-2){ledreporter+=" ";}
-            }
-            params.push(ledreporter);
-            params.push(values[values.length-1]);
-            params.push(scCases[index][3]);
-            params.push(scCases[index][4]);
-            return params;
-        }
-
-        function parseFederal(index){
-          let params = [];
-          params.push(fedCases[index][0]);
-          params.push(fedCases[index][1]);
-          values = fedCite.split(" ")
-          params.push(values[0]);
-          params.push(values[values.length-1]);
-          reporter = "";
+          usCite = scCases[index][0];
+          var values = usCite.split(" ")
+          params.push(values[0]); //volume
+          usreporter = "";
           for(var i = 1;i<values.length-1;i++){
-            reporter += values[i]
-            if(i!=values.length-2){reporter+=" ";}
+            usreporter += values[i]
+            if(i!=values.length-2){usreporter+=" ";}
           }
-          params.push(reporter);
-          params.push(fedCases[index][2]);
-          params.push(fedCases[index][3]);
+          params.push(usreporter);
+          params.push(values[values.length-1]); //page
+        //S.CT Values
+          scCite = scCases[index][1];
+          values = scCite.split(" ")
+          params.push(values[0]);
+          screporter = "";
+          for(var i = 1;i<values.length-1;i++){
+            screporter += values[i]
+            if(i!=values.length-2){screporter+=" ";}
+          }
+          params.push(screporter);
+          params.push(values[values.length-1]);
+        //L.Ed Values
+          ledCite = scCases[index][2];
+          values = ledCite.split(" ")
+          params.push(values[0]);
+          ledreporter = "";
+          for(var i = 1;i<values.length-1;i++){
+            ledreporter += values[i]
+            if(i!=values.length-2){ledreporter+=" ";}
+          }
+          params.push(ledreporter);
+          params.push(values[values.length-1]);
+          params.push(scCases[index][3]);
+          params.push(scCases[index][4]);
           return params;
         }
 
-        function parseTexas(index){
-          params.push(texCases[index][0]);
-          params.push(texCases[index][1]);
-          values = texCite.split(" ")
-          params.push(values[0]);
-          params.push(values[values.length-1]);
-          reporter = "";
-          for(var i = 1;i<values.length-1;i++){
-            reporter += values[i]
-            if(i!=values.length-2){reporter+=" ";}
+      function parseFederal(index){
+        let params = [];
+        params.push(fedCases[index][0]);
+        let fedCite = fedCases[index][1];
+        values = fedCite.split(" ");
+        params.push(values[0]);
+        params.push(values[values.length-1]);
+        reporter = "";
+        for(var i = 1; i<values.length-1; i++){
+          reporter += values[i];
+          if(i!=values.length-2){
+            reporter+=" ";
           }
-          params.push(reporter);
-          params.push(fedCases[index][2]);
-          params.push(fedCases[index][3]);
-          return params;
         }
+        alert('here parseFed 2');
+        params.push(reporter);
+        params.push(fedCases[index][2]);
+        params.push(fedCases[index][3]);
+        alert('here parseFed 3');
+        return params;
+      }
+
+      function parseTexas(index){
+        let params = [];
+        params.push(texCases[index][0]);
+        params.push(texCases[index][1]);
+        values = texCite.split(" ");
+        params.push(values[0]);
+        params.push(values[values.length-1]);
+        reporter = "";
+        for(var i = 1;i<values.length-1;i++){
+          reporter += values[i];
+          if(i!=values.length-2){
+            reporter+=" ";
+          }
+        }
+        params.push(reporter);
+        params.push(fedCases[index][2]);
+        params.push(fedCases[index][3]);
+        return params;
+      }
       //title, code, sect, name, year
       function parseStatutes(index){
         let params = [];
@@ -490,6 +497,7 @@
 
       function initParams(i, style){
         let params = []
+        alert(style);
         if(style == "caseSC"){
           params = parseSupremeCourt(i);
           google.script.run.setDataFromSideBar(params, style);
@@ -497,8 +505,11 @@
         }
         else if(style == "caseTX"){
           params = parseTexas(i);
+          alert('here');
           google.script.run.setDataFromSideBar(params, style);
+          alert('here 2');
           google.script.run.showCaseDialog();
+          alert('here 3');
         }
         else if(style == "caseFED"){
           params = parseFederal(i);
