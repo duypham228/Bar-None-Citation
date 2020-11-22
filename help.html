@@ -13,38 +13,39 @@
             font-size: 14px;
             font-family: 'Roboto';
             height: 160px;
-            width: 290px;
+            width: 240px;
             position: absolute;
             border: 1px solid lightgrey;
-            overflow: scroll;
+			padding: 15px;
         }
         .close-button {
             right: 20px;
-            bottom: 20px;
+            bottom: 0px;
             position: absolute;
             font-family: 'Roboto';
             font-size: 16px;
-            background-color: white;
+            background-color: transparent;
         }
+		
         .contact-button {
             right: 20px;
             top: 0px;
             position: absolute;
             font-family: 'Roboto';
             font-size: 16px;
-            background-color: white;
+            background-color: transparent;
         }
     </style>
 </head>
 <body>
     <div class="dialogue-box">
-        <b>Thank you for picking BarNoneCitations!</b><br>
-        <p>Create a citation by clicking BarNoneCitations, then either Autocite or Manual Citation.
-            Clicking Autocite will allow you to search the name of a case, statute, or rule, and will
-            fill up some of the information needed from the results. To cite manually, click Manual Citation.
+        <b>Getting started</b><br>
+        <p>Create a citation by choosing "BarNoneCitations > Autocite" which will
+			automatically cite from results obtained by searching the name of a case, 
+			statute, or rule. To cite manually, click "Manual Citation".
         </p>
     </div>
-    <div class="close-button">
+    <div class="close-button button1" style="background-color: transparent">
         <input type="button" value="Close" onclick="google.script.host.close()"/>
     </div>
     <div class="contact-button">
