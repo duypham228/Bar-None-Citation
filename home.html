@@ -309,7 +309,7 @@
           params.push(fedCases[index][3]);
           return params;
         }
-
+      //title, code, sect, name, year
       function parseStatutes(index){
         let params = [];
         params.push(statutes[index][0]);
@@ -435,15 +435,15 @@
         return max*6.85;
       }
 
+      // var script = document.createElement('script');
+      // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+      // script.type = 'text/javascript';
+      // document.getElementsByTagName('head')[0].appendChild(script);
+      // var test;
+      // jQuery.ajax({ url: "https://github.com/realcadecon/barNoneCitationsFileRepo/blob/master/SCCases.xlsx?raw=true", type: 'get', datatype: 'xml', success: function(data) 
+      //                       { test = data; }, error: function(jqXHR, textStatus, errorThrow)
+      //                       { alert("Error: " + jqXHR['responseText']); } });
       function searchClicked(style) {
-        // var script = document.createElement('script');
-        // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-        // script.type = 'text/javascript';
-        // document.getElementsByTagName('head')[0].appendChild(script);
-        // var test;
-        // jQuery.ajax({ url: "https://github.com/realcadecon/barNoneCitationsFileRepo/blob/master/SCCases.xlsx?raw=true", type: 'get', datatype: 'xml', success: function(data) 
-        //                       { test = data; }, error: function(jqXHR, textStatus, errorThrow)
-        //                       { alert("Error: " + jqXHR['responseText']); } });
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
@@ -479,6 +479,7 @@
             }
             break;
           case 2:
+            alert('test');
             var statResults = searchStatutes(search);
             width = longestStringStatute(statResults, statutes);
             div = document.getElementById("resultsboxid");
@@ -523,14 +524,7 @@
             citeStyle = 2;
             document.getElementById("statute").style.background='#A9A9A9';
             document.getElementById("case").style.background='#f1f1f1';
-            // document.getElementById("rules").style.background='#f1f1f1';
             break;
-          // case 4:
-          //   citeStyle = 3;
-          //   // document.getElementById("rules").style.background='#A9A9A9';
-          //   document.getElementById("case").style.background='#f1f1f1';
-          //   document.getElementById("statute").style.background='#f1f1f1';
-          //   break;
           case 5:
             iconClicked();
             break;
@@ -551,12 +545,9 @@
       <div class="statute-button-container">
         <input type="button" id="statute" class = "header-buttons default-border header-button-text default-font" value="Statute" onclick="generalClicked(3)">
       </div>
-      <!-- <div class="rules-button-container">
-          <input type ="button" id="rules" class = "header-buttons default-border header-button-text default-font" value = "Rules" onclick="generalClicked(4)">
-      </div> -->
       
       <input type="text" class ="enter-case-statue-name" name="search-name" id="searchText" placeholder="Enter case or statue name">
-      <input type="button" class = "search-button search action" value = "Search"  onclick="generalClicked(1)">
+      <input type="button" class = "search-button search action" value="Search"  onclick="generalClicked(1)">
       <div class="bottom-half"></div>
       <div id="searchOrCite" class="search-results default-font">Recent Citations:</div>
       <div id="resultsboxid" class="results-box default-border"></div> 
