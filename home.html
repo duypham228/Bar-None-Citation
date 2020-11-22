@@ -450,6 +450,7 @@
         var resultString = "";
         var i;
         var width;
+        div = document.getElementById("resultsboxid");
         switch (style) {
           case 0:
             alert ("You need to choose whether you are citing a case or statute");
@@ -461,7 +462,6 @@
             var fedResults = searchFederal(search); 
             width = longestStringCase(scResults, txResults, fedResults, scCases, texCases, fedCases);
             // google.script.run.withSuccessHandler(customAlert).openSheet();
-            div = document.getElementById("resultsboxid");
             div.innerHTML = "";
             resultString = div.innerHTML; 
             let style = "";
@@ -480,11 +480,8 @@
             break;
           case 2:
             var statResults = searchStatutes(search);
-            alert('test 1');
+            alert(statResults);
             width = longestStringStatute(statResults, statutes);
-            alert('test 2');
-            div = document.getElementById("resultsboxid");
-            alert('test 3');
             div.innerHTML = "";
             resultString = div.innerHTML;
             for(i of statResults){
