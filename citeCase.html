@@ -500,7 +500,21 @@
             }
         }
         function onSuccessAutoFill(result){
-            alert(result['caseName']);
+            // alert(result['caseName']);
+            if (result['style'] == "caseSC") {
+                changeStyle(1);
+            } else if (result['style'] == "caseTX") {
+                changeStyle(2);
+            } else {
+                changeStyle(3);
+            }
+            document.getElementById("testName").setAttribute("placeholder", result['caseName']);
+            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
+            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
+            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
+            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
+            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
+            
         }
         function initializeParams(){
             google.script.run.withSuccessHandler(onSuccessAutoFill).getDataFromDialog();
