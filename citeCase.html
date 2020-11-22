@@ -437,6 +437,30 @@
                       ["Tex.", "142 S.W.3d 310", "CITY OF DALLAS v. JENNINGS", "2004"],
                       ["Tex.App.—Houston [14th Dist.]", "57 S.W.3d 646 ", "GOODIE v. HOUSTON INDEPENDENT SCHOOL DIST", "2001"]];
 
+        function validateCitation(page, year, volume, court) {
+            if (!Number.isInteger(page)) {
+                alert ('Page must be a integer');
+                return 0;
+            }
+            else if (!Number.isInteger(year)) {
+                alert ('Year must be a integer');
+                return 0;
+            }
+            else if (!(1791 < year < 2021)) {
+                alert ('Year must be between 1791-2021');
+                return 0;
+            }
+            else if (!Number.isInteger(volume)) {
+                alert ('Volume must be an integer');
+                return 0;
+            }
+            else if (court.isEmpty()) {
+                alert ('Court must have an input');
+                return 0;
+            }
+            return 1;
+        }
+
         function generateCitation(){
             var citation;
             //document.getElementById("testName").setAttribute("placeholder", result);
@@ -462,8 +486,10 @@
             var volume = document.getElementById("vol").value;
             var court = document.getElementById("court").value;
 
-            citation = citeCase(name, volume, reporter, page, year, style, court);
-            document.getElementById("citation").value = citation;
+            if (validateCitation(page, year, volume, court)) {
+                citation = citeCase(name, volume, reporter, page, year, style, court);
+                document.getElementById("citation").value = citation;
+            }
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){

@@ -422,6 +422,15 @@
         return max*6.85;
       }
 
+      function validateSearch(search) {
+        let regex = /!([0-9]*[a-z]*[A-Z]*.*,*)/;
+        if (search.match(regex) != NULL) {
+          alert ('Case/Statute name must not include any special characters');
+          return 0;
+        }
+        return 1;
+      }
+
       // var script = document.createElement('script');
       // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
       // script.type = 'text/javascript';
@@ -434,47 +443,49 @@
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
-        var resultString = "";
-        var i;
-        var width;
-        div = document.getElementById("resultsboxid");
-        switch (style) {
-          case 0:
-            alert ("You need to choose whether you are citing a case or statute");
-            //alert(test);
-            break;
-          case 1:
-            var scResults = searchSupremeCourt(search);
-            var txResults = searchTexas(search);
-            var fedResults = searchFederal(search); 
-            width = longestStringCase(scResults, txResults, fedResults, scCases, texCases, fedCases);
-            // google.script.run.withSuccessHandler(customAlert).openSheet();
-            div.innerHTML = "";
-            resultString = div.innerHTML; 
-            let caseStyle = "";
-            for(i of scResults){
-              caseStyle = "caseSC";
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ scCases[i][4] +'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
-            }
-            for(i of txResults){
-              caseStyle = "caseTX";
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ texCases[i][2]+'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
-            }
-            for(i of fedResults){
-              caseStyle = "caseFED";
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ fedCases[i][2]+'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
-            }
-            break;
-          case 2:
-            var statResults = searchStatutes(search);
-            width = longestStringStatute(statResults, statutes);
-            div.innerHTML = "";
-            resultString = div.innerHTML;
-            for(i of statResults){
-              div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ statutes[i][3]+'" onclick="initParams(\''+i+'\', \''+"statute"+'\')"></br>';
-            }
-            break;
+        if (validateSearch(search)) {
+          var resultString = "";
+          var i;
+          var width;
+          div = document.getElementById("resultsboxid");
+          switch (style) {
+            case 0:
+              alert ("You need to choose whether you are citing a case or statute");
+              //alert(test);
+              break;
+            case 1:
+              var scResults = searchSupremeCourt(search);
+              var txResults = searchTexas(search);
+              var fedResults = searchFederal(search); 
+              width = longestStringCase(scResults, txResults, fedResults, scCases, texCases, fedCases);
+              // google.script.run.withSuccessHandler(customAlert).openSheet();
+              div.innerHTML = "";
+              resultString = div.innerHTML; 
+              let caseStyle = "";
+              for(i of scResults){
+                caseStyle = "caseSC";
+                div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ scCases[i][4] +'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
+              }
+              for(i of txResults){
+                caseStyle = "caseTX";
+                div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ texCases[i][2]+'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
+              }
+              for(i of fedResults){
+                caseStyle = "caseFED";
+                div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ fedCases[i][2]+'" onclick="initParams(\''+i+'\', \''+caseStyle+'\')"></br>';
+              }
+              break;
+            case 2:
+              var statResults = searchStatutes(search);
+              width = longestStringStatute(statResults, statutes);
+              div.innerHTML = "";
+              resultString = div.innerHTML;
+              for(i of statResults){
+                div.innerHTML += '<input type="button" class="search-results-button" style="width:'+width+'px;" value="'+ statutes[i][3]+'" onclick="initParams(\''+i+'\', \''+"statute"+'\')"></br>';
+              }
+              break;
           }
+        }
       }  
 
       function iconClicked() {
