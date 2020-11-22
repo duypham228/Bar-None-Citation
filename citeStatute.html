@@ -325,6 +325,39 @@
                       ["21","U.S.C.","1572","DEFINITIONS","2000"],
                       ["52", "U.S.C.","10701", "ENFORCEMENT OF TWENTY-SIXTH AMENDMENT", "1975"],
                       ["54", "U.S.C", "320201","NATIONAL MONUMENTS", "2014"]];
+
+        function validateCitation(title, section, code, year) {
+            let regex1 = /!([0-9]*[a-z]*[A-Z]*(*)*)/;
+            let regex2 = /!([0-9]*[a-z]*[A-Z]*.*)/;
+            if (!Number.isInteger(title)) {
+                alert ('Title must be a integer');
+                return 0;
+            }
+            else if (section.isEmpty()) {
+                alert ('Section must not be empty');
+            }
+            else if (section.match(regex1) != NULL) {
+                alert ('Section must not include any special characters');
+                return 0;
+            }
+            else if (code.isEmpty()) {
+                alert ('Code must not be empty');
+            }
+            else if (code.match(regex2) != NULL) {
+                alert ('Code must not include any special characters');
+                return 0;
+            }
+            else if (!Number.isInteger(year)) {
+                alert ('Year must be a integer');
+                return 0;
+            }
+            else if (!(1791 < year < 2021)) {
+                alert ('Year must be between 1791-2021');
+                return 0;
+            }
+            return 1;
+        }
+        
         function generateCitation(){
             var citation;
             //document.getElementById("testName").setAttribute("placeholder", result);
@@ -334,7 +367,9 @@
             var code = document.getElementById("code").value;
             var year = document.getElementById("year").value;
 
-            document.getElementById("citation").value = citeStatutes(title, code, sect, year, style);
+            if (validateCitation(title, section, code, year)) {
+                document.getElementById("citation").value = citeStatutes(title, code, sect, year, style);
+            }
         }
         function citeStatutes(title, code, sect, year, style){
             var citation = "";
