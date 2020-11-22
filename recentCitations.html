@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <style>
+        .dialogue-box {
+            background-color: transparent;
+            font-size: 14px;
+            font-family: 'Roboto';
+            height: 160px;
+            width: 290px;
+            position: absolute;
+            border: 1px solid lightgrey;
+            overflow: scroll;
+        }
+        .close-button {
+            right: 20px;
+            bottom: 20px;
+            position: absolute;
+            font-family: 'Roboto';
+            font-size: 16px;
+            background-color: white;
+        }
+    </style>
+    <script>
+        var recentCitations = [];
+        function onSuccess (result) {
+            recentCitations.push(result);
+        }                   
+        function addCitation(){
+            // var citation = "Hello";
+            google.script.run.withSuccessHandler(onSuccess).getCitation();
+            // recentCitations.push(citation);
+            // alert(citation);
+        }
+        function loadCitations() {
+            addCitation();
+            var resultString; 
+            resultString = "<ul>";
+            var i;
+            for(i of recentCitations){
+                resultString +="<li>" + i + "</li></br>";
+            }
+            resultString+="</ul>";
+            // alert (resultString);
+            var div = document.getElementById("recentCitations");
+            div.innerHTML = resultString;
+        }
+    </script>
+</head>
+<body onload="loadCitations()">
+    <div id="citationsList" class="dialogue-box">
+    </div>
+    <div class="close-button">
+        <input type="button" value="Close" onclick="google.script.host.close()"/>
+    </div>
+</body>
+</html>

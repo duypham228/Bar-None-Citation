@@ -98,6 +98,15 @@ DocumentApp.getUi()
   .showModalDialog(html, 'Contact Us'); 
 }
 
+function citationsPage() {
+  var html = HtmlService.createHtmlOutputFromFile('recentCitations')
+  .setTitle('Recent Citations')
+  .setWidth(300)
+  .setHeight(300);
+DocumentApp.getUi()
+  .showModalDialog(html, 'Recent Citations'); 
+}
+
 // function testString() {
 //   var returnString = "";
 //   return returnString;
