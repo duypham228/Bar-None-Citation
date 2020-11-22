@@ -284,33 +284,31 @@
         let params = [];
         params.push(fedCases[index][0]);
         let fedCite = fedCases[index][1];
-        values = fedCite.split(" ");
+        let values = fedCite.split(" ");
         params.push(values[0]);
         params.push(values[values.length-1]);
-        reporter = "";
+        let reporter = "";
         for(var i = 1; i<values.length-1; i++){
           reporter += values[i];
           if(i!=values.length-2){
             reporter+=" ";
           }
         }
-        alert('here parseFed 2');
         params.push(reporter);
         params.push(fedCases[index][2]);
         params.push(fedCases[index][3]);
-        alert('here parseFed 3');
         return params;
       }
 
       function parseTexas(index){
         let params = [];
         params.push(texCases[index][0]);
-        params.push(texCases[index][1]);
-        values = texCite.split(" ");
+        let texCite = texCases[index][1];
+        let values = texCite.split(" ");
         params.push(values[0]);
         params.push(values[values.length-1]);
-        reporter = "";
-        for(var i = 1;i<values.length-1;i++){
+        let reporter = "";
+        for(var i = 1; i<values.length-1; i++){
           reporter += values[i];
           if(i!=values.length-2){
             reporter+=" ";
@@ -505,11 +503,8 @@
         }
         else if(style == "caseTX"){
           params = parseTexas(i);
-          alert('here');
           google.script.run.setDataFromSideBar(params, style);
-          alert('here 2');
           google.script.run.showCaseDialog();
-          alert('here 3');
         }
         else if(style == "caseFED"){
           params = parseFederal(i);
