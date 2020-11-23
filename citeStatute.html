@@ -367,7 +367,7 @@
             var code = document.getElementById("code").value;
             var year = document.getElementById("year").value;
 
-            if (validateCitation(title, section, code, year)) {
+            if (validateCitation(title, sect, code, year)) {
                 document.getElementById("citation").value = citeStatutes(title, code, sect, year, style);
             }
         }
@@ -378,13 +378,14 @@
                 citation = title+" "+code+" \u00a7 "+sect+" ("+year+")";
                 break;
                 case "TX":
-                citation ="Tex. "+code+" \u00a7 "+sect+" ("+year+")";
+                citation ="Tex. Penal Code \u00a7 "+sect+" ("+year+")";
                 break;
             }
             google.script.run.setCitation(citation);
             return citation;
         }
 
+        var caseData; //contains result
         function changeStyle(style){
             switch(style){
                 case 1:
@@ -398,9 +399,23 @@
             }
         }
 
+        function onSuccessAutoFill(result){
+            caseData = result;
+            changeStyle(1);
+            document.getElementById("title").setAttribute("value", result['title']);
+            document.getElementById("section").setAttribute("value", result['sect']);
+            document.getElementById("code").setAttribute("value", result['code']);
+            document.getElementById("year").setAttribute("value", result['year']);  
+        }
+
+        function initializeParams(){
+            google.script.run.withSuccessHandler(onSuccessAutoFill).getDataFromDialog();
+        }
+
+
     </script>
 </head>
-<body>
+<body onLoad="initializeParams()">
     <div class="rectangle-1 border-class-1">
         <div class="group-18">
             <div class="headerRectangle">
@@ -423,28 +438,13 @@
             </div>
             <!------------------------Text Fields-------------------------------------------------->
             <div class="title">Title:</div>
-            <input type=text id= "title" class="title-TB border-class-1" name="name" placeholder="">
+            <input type=text id="title" class="title-TB border-class-1" name="name" placeholder="">
             <div class="code">Code Abbr:</div>
-            <input type=text id= "code" class="code-TB border-class-1" name="page" placeholder="">
+            <input type=text id="code" class="code-TB border-class-1" name="page" placeholder="">
             <div class="section">Section:</div>
             <input type=text id="section" class="section-TB border-class-1" name="page" placeholder="">
             <div class="year">Year:</div>
             <input type=text id="year" class="year-TB border-class-1" name="page" placeholder="">
-            
-            <!-- <div class="court-reporter">Court Reporter:</div>
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <legend>Court Reporter:</legend>
-                    <input type="radio" class="" name="court-reporter" value="U.S.">
-                    <label for="US">US</label>
-                    <div class="us font-class-1">U.S.</div>
-                    <input type="radio" class="" name="court-reporter" value="S.Ct">
-                    <label for="SCt">SCt</label>
-                    <div class="s-ct font-class-1">S.Ct</div>
-                    <input type="radio" class="" name="court-reporter" value="L.E.2d">
-                    <label for="LE2d">LE2d</label>
-                    <div class="le2d font-class-1">L.E.2d</div>
-            </fieldset>
-            </div> -->
             <!------------------------Submit Button-------------------------------------------------->
             <input type="submit" class="generate-citation submit-rectangle" value="Generate Citation" onclick="generateCitation()">
         </div>
