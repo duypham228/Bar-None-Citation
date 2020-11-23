@@ -134,12 +134,21 @@ function getDataFromDialog() {
   return keys;
 }
 
+var recentCitations = [];
+
 function setCitation(citation){
+  recentCitations.push(citation);
   var documentProperties = PropertiesService.getDocumentProperties();
+  let resultString; 
+  resultString = "<ul>";
+  let i;
+  for(i of recentCitations){
+      resultString +="<li>" + i + "</li></br>";
+  }
+  resultString+="</ul>";
   documentProperties.deleteAllProperties();
-  documentProperties.setProperty('citation', citation);
-  Logger.log(citation);
-  return citation;
+  documentProperties.setProperty('citation', resultString);
+  Logger.log(resultString);
 }
 
 function getCitation() {

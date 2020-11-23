@@ -214,6 +214,7 @@
       }
     </style>
     <script>
+      var recentCitations = [];
       //usCite, sctCite, ledCite, term, caseName
       var scCases = [["329 U.S. 1", "67 S.Ct. 6", "91 L.Ed. 3", "1946", "HALLIBURTON OIL WELL CEMENTING CO. v. WALKER"],
                       ["444 U.S. 507","100 S.Ct. 763","62 L.Ed.2d 704","1979", "SNEPP v. UNITED STATES"],
@@ -426,7 +427,7 @@
         //var regex = new RegExp();
         searchString = "";
         searchString = search;
-        var regexArray = searchString.match(/[^a-zA-Z0-9\.,\ ]+/);
+        var regexArray = searchString.match(/[^a-zA-Z0-9\.,\ -]+/);
         if (regexArray !== null) {
           alert ('Case/Statute name must not include any special characters');
           return 0;
