@@ -17,20 +17,6 @@ function showSidebar() {
 }
 
 function showDialog() {
-  // var html;
-  // switch(style){
-  //   case("citeCase"):
-  //     html = HtmlService.createHtmlOutputFromFile('citeCase')
-  //     .setTitle('Bar None Citations')
-  //     .setWidth(400)
-  //     .setHeight(600);
-  //     break;
-  //   case("citeRule"):
-  //     break;
-  //   case("citeStatute"):
-  //     break;
-  // }
-
   var html = HtmlService.createHtmlOutputFromFile('citeCase')
     .setTitle('Bar None Citations')
     .setWidth(400)
@@ -134,21 +120,11 @@ function getDataFromDialog() {
   return keys;
 }
 
-var recentCitations = [];
-
-function setCitation(citation){
-  recentCitations.push(citation);
+function setCitation(citation) {
   var documentProperties = PropertiesService.getDocumentProperties();
-  let resultString; 
-  resultString = "<ul>";
-  let i;
-  for(i of recentCitations){
-      resultString +="<li>" + i + "</li></br>";
-  }
-  resultString+="</ul>";
   documentProperties.deleteAllProperties();
-  documentProperties.setProperty('citation', resultString);
-  Logger.log(resultString);
+  documentProperties.setProperty('citation', citation);
+  Logger.log(citation);
 }
 
 function getCitation() {
@@ -158,4 +134,20 @@ function getCitation() {
   return citation;
 }
 
-//search functions
+//"citation1 ||| citation2 ||| citation3"
+
+//arry = split(list)
+
+function setRecentCitation(citationList){
+  var documentProperties = PropertiesService.getDocumentProperties();
+  documentProperties.deleteAllProperties();
+  documentProperties.setProperty('citationList', citationList);
+  Logger.log(citationList);
+}
+
+function getRecentCitation(){
+  var documentProperties = PropertiesService.getDocumentProperties();
+  var citationList = documentProperties.getProperty('citationList');
+  Logger.log(citationList);
+  return citationList;
+}

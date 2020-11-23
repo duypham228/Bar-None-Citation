@@ -214,7 +214,6 @@
       }
     </style>
     <script>
-      var recentCitations = [];
       //usCite, sctCite, ledCite, term, caseName
       var scCases = [["329 U.S. 1", "67 S.Ct. 6", "91 L.Ed. 3", "1946", "HALLIBURTON OIL WELL CEMENTING CO. v. WALKER"],
                       ["444 U.S. 507","100 S.Ct. 763","62 L.Ed.2d 704","1979", "SNEPP v. UNITED STATES"],
@@ -332,20 +331,33 @@
       }
 
       var citeStyle = 0;
-      var recentCitations = [];
-      // var hardCodedCitations = ["SNEPP v. UNITED STATES, 444 S.Ct 507 (1979)", 
-      //                           "SANTE FE INDEPENDENT SCHOOL DISTRICT v. JANE DOE, 530 S.Ct 290 (1999)",
-      //                         "GEORGE V. LONG BEACH CITY, 360 F. 2 (9 1991)"];
-      // var citation;
-      function onSuccess (result) {
-        recentCitations.push(result);
-      }                   
-      function addCitation(){
-        // var citation = "Hello";
-        google.script.run.withSuccessHandler(onSuccess).getCitation();
-        // recentCitations.push(citation);
-        // alert(citation);
+      var resultString = "";
+
+      function loadRC(){
+        google.script.run.citationsPage();
       }
+
+      function onSuccessSetRC(result){
+        if(resultString == ""){
+          resultString += result;
+        }
+        else{
+          resultString +=  "||| " + result;
+        }
+        google.script.run.withSuccessHandler(loadRC).setRecentCitation(resultString);
+      }
+
+      function onSuccessGetRC(result){
+        if(result!=null){
+          resultString = result;
+        }
+        google.script.run.withSuccessHandler(onSuccessSetRC).getCitation();
+      }
+
+      function addCitation(){
+        google.script.run.withSuccessHandler(onSuccessGetRC).getRecentCitation();
+      }
+
       function customAlert(info) {
         alert(info);
       }
@@ -435,15 +447,8 @@
         return 1;
       }
 
-      // var script = document.createElement('script');
-      // script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-      // script.type = 'text/javascript';
-      // document.getElementsByTagName('head')[0].appendChild(script);
-      // var test;
-      // jQuery.ajax({ url: "https://github.com/realcadecon/barNoneCitationsFileRepo/blob/master/SCCases.xlsx?raw=true", type: 'get', datatype: 'xml', success: function(data) 
-      //                       { test = data; }, error: function(jqXHR, textStatus, errorThrow)
-      //                       { alert("Error: " + jqXHR['responseText']); } });
       function searchClicked(style) {
+        //addCitation();
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
@@ -552,7 +557,7 @@
             iconClicked();
             break;
           case 6:
-            google.script.run.citationsPage();
+            addCitation();
             break;
         }
     }     

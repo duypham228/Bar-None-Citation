@@ -29,13 +29,23 @@
     </style>
     <script>
         function onSuccess (result) {
-            alert (result);
+            let resultString = "<ul>";
+            if(!result.includes("|||")){
+                resultString += "<li>"+result+"</li></br>";
+            }
+            else{
+                let citeList = result.split("|||");
+                for(var i of citeList){
+                    resultString += "<li>"+i+"</li></br>";
+                }
+            }
+            resultString += "</ul>";
             var div = document.getElementById("citationsList");
-            alert(1);
-            div.innerHTML += result;
-        }                   
+            div.innerHTML = resultString;
+        }
+
         function loadCitations() {
-            google.script.run.withSuccessHandler(onSuccess).getCitation();
+            google.script.run.withSuccessHandler(onSuccess).getRecentCitation();
         }
     </script>
 </head>
