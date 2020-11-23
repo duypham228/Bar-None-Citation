@@ -514,6 +514,8 @@
                 case 1:
                     var div = document.getElementById("sty");
                     div.innerHTML = "Style: Supreme Court Cases";
+                    document.getElementById("us").checked = true;
+                    changeReporter(1);
                     document.getElementById("us").disabled = false; 
                     document.getElementById("sct").disabled = false;
                     document.getElementById("le2d").disabled = false;
@@ -524,6 +526,7 @@
                 case 2:
                     var div = document.getElementById("sty");
                     div.innerHTML = "Style: Texas Court Cases";
+                    document.getElementById("sw3d").checked = true;
                     document.getElementById("court").disabled = false;
                     document.getElementById("sw3d").disabled = false;
                     document.getElementById("us").disabled = true; 
@@ -534,6 +537,7 @@
                 case 3:
                     var div = document.getElementById("sty");
                     div.innerHTML = "Style: Federal Court Cases";
+                    document.getElementById("f").checked = true;
                     document.getElementById("court").disabled = false;
                     document.getElementById("f").disabled = false;
                     document.getElementById("us").disabled = true; 
