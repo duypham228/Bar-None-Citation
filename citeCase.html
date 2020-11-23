@@ -525,31 +525,51 @@
                     break;
             }
         }
+
+        function changeReporter(style){
+            if (style == 1) {
+                document.getElementById("vol").setAttribute("value", result['usVol']);
+                document.getElementById("pg").setAttribute("value", result['usPage']);
+            }else if (style == 3) {
+                document.getElementById("vol").setAttribute("value", result['ledVol']);
+                document.getElementById("pg").setAttribute("value", result['ledPage']);
+            } else {
+                document.getElementById("vol").setAttribute("value", result['sctVol']);
+                document.getElementById("pg").setAttribute("value", result['sctPage']);
+            }
+            alert(document.getElementById("vol"));
+        }
+
         function onSuccessAutoFill(result){
             // alert(result['caseName']);
             if (result['style'] == "caseSC") {
                 changeStyle(1);
-                
                 document.getElementById("vol").setAttribute("value", result['usVol']);
                 document.getElementById("pg").setAttribute("value", result['usPage']);
+                document.getElementById("year").setAttribute("value", result['term']);
+                document.getElementById("us").checked = true;
             }else if (result['style'] == "caseTX") {
                 changeStyle(2);
                 document.getElementById("vol").setAttribute("value", result['vol']);
+                document.getElementById("pg").setAttribute("value", result['page']);
+                document.getElementById("year").setAttribute("value", result['term']);
+                document.getElementById("court").setAttribute("value", result['court']);
+                document.getElementById("sw3d").checked = true;
             } else {
                 changeStyle(3);
                 document.getElementById("vol").setAttribute("value", result['vol']);
+                document.getElementById("pg").setAttribute("value", result['page']);
+                document.getElementById("year").setAttribute("value", result['term']);
+                document.getElementById("court").setAttribute("value", result['court']);
+                document.getElementById("f").checked = true;
             }
-            document.getElementById("testName").setAttribute("value", result['caseName']);
-            
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            // document.getElementById("testName").setAttribute("placeholder", result['caseName']);
-            
+            document.getElementById("name").setAttribute("value", result['caseName']);  
         }
+
         function initializeParams(){
             google.script.run.withSuccessHandler(onSuccessAutoFill).getDataFromDialog();
         }
+
     </script>
 </head>
 <body onLoad="initializeParams()">
@@ -576,7 +596,7 @@
             </div>
             <!------------------------Text Fields-------------------------------------------------->
             <div class="name font-class-1">Name:</div>
-            <input id="testName" type=text class="name-TB border-class-1" value="" name="name" placeholder="">
+            <input id="name" type=text class="name-TB border-class-1" value="" name="name" placeholder="">
             <div class="page font-class-1">Page:</div>
             <input type=text class="page-TB border-class-1" id="pg" name="page" placeholder="">
             <div class="volume font-class-1">Volume:</div>
@@ -587,15 +607,15 @@
             <input type=text class="court-TB border-class-1" id="court" name="page" placeholder="">
             <!------------------------Radio Buttons-------------------------------------------------->
             <div class="court-reporter font-class-1">Court Reporter:</div>
-            <input type="radio" class="us-ellipse" name="court-reporter" value="U.S.">
+            <input type="radio" id="us" class="us-ellipse" name="court-reporter" value="U.S." onclick="changeReporter(1)">
             <div class="us font-class-1">U.S.</div>
-            <input type="radio" class="sct-ellipse" name="court-reporter" value="S.Ct">
+            <input type="radio"  id="sct" class="sct-ellipse" name="court-reporter" value="S.Ct" onclick="changeReporter(2)">
             <div class="s-ct font-class-1">S.Ct</div>
-            <input type="radio" class="le2d-ellipse" name="court-reporter" value="L.E.2d">
+            <input type="radio" id="le2d" class="le2d-ellipse" name="court-reporter" value="L.E.2d" onclick="changeReporter(3)">
             <div class="le2d font-class-1">L.E.2d</div>
-            <input type="radio" class="fed-ellipse" name="court-reporter" value="F.">
+            <input type="radio"  id="f" class="fed-ellipse" name="court-reporter" value="F.">
             <div class="fed font-class-1">F.</div>
-            <input type="radio" class="tx-ellipse" name="court-reporter" value="S.W.3d">
+            <input type="radio"  id="sw3d" class="tx-ellipse" name="court-reporter" value="S.W.3d">
             <div class="tx font-class-1">S.W.3d</div>
             <!------------------------Submit Button-------------------------------------------------->
             <input type="submit" class="generate-citation font-class-1 submit-rectangle" value="Generate Citation" onclick="generateCitation()">

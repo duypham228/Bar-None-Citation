@@ -123,7 +123,7 @@ function setDataFromSideBar(params, style) {
                                       'ledVol': params[6], 'ledReporter': params[7], 'ledPage':params[8], 'term':params[9], 'caseName':params[10], 'style':style}, true);
   }
   else{ //court, vol, reporter, page, name, year
-    documentProperties.setProperties({'court': params[0], 'vol': params[1], 'reporter': params[2], 'page': params[3], 'term':params[4], 'caseName':params[5], 'style':style}, true);
+    documentProperties.setProperties({'court': params[0], 'vol': params[1], 'page': params[2], 'reporter': params[3], 'caseName':params[4], 'term':params[5], 'style':style}, true);
   }
 }
 
