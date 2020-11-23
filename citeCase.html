@@ -437,24 +437,24 @@
                       ["Tex.", "142 S.W.3d 310", "CITY OF DALLAS v. JENNINGS", "2004"],
                       ["Tex.App.—Houston [14th Dist.]", "57 S.W.3d 646 ", "GOODIE v. HOUSTON INDEPENDENT SCHOOL DIST", "2001"]];
 
-        function validateCitation(page, year, volume, court) {
-            if (!Number.isInteger(page)) {
+        function validateCitation(page, year, volume, court, style) {
+            if (isNaN(Number(page)) || Number(page) > 0 || Number(page) % 2 != 0) {
                 alert ('Page must be a integer');
                 return 0;
             }
-            else if (!Number.isInteger(year)) {
+            else if (isNaN(Number(year)) || Number(year) % 2 != 0) {
                 alert ('Year must be a integer');
                 return 0;
             }
-            else if (!(1791 < year < 2021)) {
-                alert ('Year must be between 1791-2021');
+            else if (!(1791 < Number(year) < 2020)) {
+                alert ('Year must be between 1791-2020');
                 return 0;
             }
-            else if (!Number.isInteger(volume)) {
+            else if (isNaN(Number(volume)) || Number(volume) > 0 || Number(volume) % 2 != 0) {
                 alert ('Volume must be an integer');
                 return 0;
             }
-            else if (court === "") {
+            else if (style !== "SC" && court === "") {
                 alert ('Court must have an input');
                 return 0;
             }

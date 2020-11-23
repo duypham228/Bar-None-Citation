@@ -329,30 +329,30 @@
         function validateCitation(title, section, code, year) {
             let regex1 = /[^a-zA-Z0-9\ \)\(]+/;
             let regex2 = /[^a-zA-Z0-9\.,\ ]+/;
-            if (!Number.isInteger(title)) {
+            if (isNaN(Number(title)) || Number(title) > 0 || Number(title) % 2 != 0) {
                 alert ('Title must be a integer');
                 return 0;
             }
             else if (section === "") {
                 alert ('Section must not be empty');
             }
-            else if (section.match(regex1) != NULL) {
+            else if (section.match(regex1) !== null) {
                 alert ('Section must not include any special characters');
                 return 0;
             }
             else if (code === "") {
                 alert ('Code must not be empty');
             }
-            else if (code.match(regex2) != NULL) {
+            else if (code.match(regex2) !== null) {
                 alert ('Code must not include any special characters');
                 return 0;
             }
-            else if (!Number.isInteger(year)) {
+            else if (isNaN(Number(year)) || Number(year) % 2 != 0) {
                 alert ('Year must be a integer');
                 return 0;
             }
-            else if (!(1791 < year < 2021)) {
-                alert ('Year must be between 1791-2021');
+            else if (!(1791 < Number(year) < 2020)) {
+                alert ('Year must be between 1791-2020');
                 return 0;
             }
             return 1;

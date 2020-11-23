@@ -423,11 +423,15 @@
       }
 
       function validateSearch(search) {
-        let regex = /[^a-zA-Z0-9\.,\ ]+/;
-        if (search.match(regex) != NULL) {
+        //var regex = new RegExp();
+        searchString = "";
+        searchString = search;
+        var regexArray = searchString.match(/[^a-zA-Z0-9\.,\ ]+/);
+        if (regexArray !== null) {
           alert ('Case/Statute name must not include any special characters');
           return 0;
         }
+        alert ("no issues! :)");
         return 1;
       }
 
@@ -443,7 +447,7 @@
         var div = document.getElementById('searchOrCite');
         div.innerHTML = 'Search Results:';
         var search = document.getElementById("searchText").value;
-        if (true || validateSearch(search)) {
+        if (validateSearch(search)) {
           var resultString = "";
           var i;
           var width;
