@@ -438,7 +438,7 @@
                       ["Tex.App.—Houston [14th Dist.]", "57 S.W.3d 646 ", "GOODIE v. HOUSTON INDEPENDENT SCHOOL DIST", "2001"]];
 
         function validateCitation(page, year, volume, court, style) {
-            if (isNaN(Number(page)) || Number(page) > 0 || Number(page) % 2 != 0) {
+            if (isNaN(Number(page)) || Number(page) < 0 || Number(page) % 2 != 0) {
                 alert ('Page must be a integer');
                 return 0;
             }

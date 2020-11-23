@@ -329,7 +329,7 @@
         function validateCitation(title, section, code, year) {
             let regex1 = /[^a-zA-Z0-9\ \)\(]+/;
             let regex2 = /[^a-zA-Z0-9\.,\ ]+/;
-            if (isNaN(Number(title)) || Number(title) > 0 || Number(title) % 2 != 0) {
+            if (isNaN(Number(title)) || Number(title) < 0 || Number(title) % 2 != 0) {
                 alert ('Title must be a integer');
                 return 0;
             }
