@@ -526,22 +526,24 @@
             }
         }
 
+        var caseData;
+
         function changeReporter(style){
             if (style == 1) {
-                document.getElementById("vol").setAttribute("value", result['usVol']);
-                document.getElementById("pg").setAttribute("value", result['usPage']);
+                document.getElementById("vol").setAttribute("value", caseData['usVol']);
+                document.getElementById("pg").setAttribute("value", caseData['usPage']);
             }else if (style == 3) {
-                document.getElementById("vol").setAttribute("value", result['ledVol']);
-                document.getElementById("pg").setAttribute("value", result['ledPage']);
+                document.getElementById("vol").setAttribute("value", caseData['ledVol']);
+                document.getElementById("pg").setAttribute("value", caseData['ledPage']);
             } else {
-                document.getElementById("vol").setAttribute("value", result['sctVol']);
-                document.getElementById("pg").setAttribute("value", result['sctPage']);
+                document.getElementById("vol").setAttribute("value", caseData['sctVol']);
+                document.getElementById("pg").setAttribute("value", caseData['sctPage']);
             }
-            alert(document.getElementById("vol"));
         }
 
         function onSuccessAutoFill(result){
             // alert(result['caseName']);
+            caseData = result;
             if (result['style'] == "caseSC") {
                 changeStyle(1);
                 document.getElementById("vol").setAttribute("value", result['usVol']);
