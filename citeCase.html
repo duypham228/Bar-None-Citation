@@ -438,27 +438,27 @@
                       ["Tex.App.—Houston [14th Dist.]", "57 S.W.3d 646 ", "GOODIE v. HOUSTON INDEPENDENT SCHOOL DIST", "2001"]];
 
         function validateCitation(page, year, volume, court, style) {
-            if (isNaN(Number(page)) || Number(page) < 0 || Number(page) % 2 != 0) {
-                alert ('Page must be a integer');
-                return 0;
+            let errorString = "";
+            if (isNaN(Number(page)) || Number(page) < 0 || Math.ceil(Number(page)) !== Number(page)) {
+                errorString += 'Page must be a positive integer \n';
             }
-            else if (isNaN(Number(year)) || Number(year) % 2 != 0) {
-                alert ('Year must be a integer');
-                return 0;
+            if (isNaN(Number(year)) || Math.ceil(Number(year)) !== Number(year)) {
+                errorString += 'Year must be a positive integer \n';
             }
-            else if (!(1791 < Number(year) < 2020)) {
-                alert ('Year must be between 1791-2020');
-                return 0;
+            if (!(1791 < Number(year) < 2020)) {
+                errorString += 'Year must be between 1791-2020 \n';
             }
-            else if (isNaN(Number(volume)) || Number(volume) > 0 || Number(volume) % 2 != 0) {
-                alert ('Volume must be an integer');
-                return 0;
+            if (isNaN(Number(volume)) || Number(volume) < 0 || Math.ceil(Number(volume)) !== Number(volume)) {
+                errorString += 'Volume must be a positive integer \n';
             }
-            else if (style !== "SC" && court === "") {
-                alert ('Court must have an input');
-                return 0;
+            if (style !== "SC" && court === "") {
+                errorString += 'Court must have an input \n';
             }
-            return 1;
+            if (errorString.length !== 0) {
+                alert(errorString);
+                return false;
+            }
+            return true;
         }
 
         function generateCitation(){
@@ -474,7 +474,7 @@
             else{
                 style = "FED";
             }
-            var name = document.getElementById("testName").value;
+            var name = document.getElementById("name").value;
             var reporter;
             var elements = document.getElementsByName("court-reporter"); 
             for(i = 0; i < elements.length; i++) { 
@@ -486,7 +486,7 @@
             var volume = document.getElementById("vol").value;
             var court = document.getElementById("court").value;
 
-            if (validateCitation(page, year, volume, court)) {
+            if (validateCitation(page, year, volume, court, style)) {
                 citation = citeCase(name, volume, reporter, page, year, style, court);
                 document.getElementById("citation").value = citation;
             }

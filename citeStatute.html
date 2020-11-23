@@ -329,33 +329,33 @@
         function validateCitation(title, section, code, year) {
             let regex1 = /[^a-zA-Z0-9\ \)\(]+/;
             let regex2 = /[^a-zA-Z0-9\.,\ ]+/;
-            if (isNaN(Number(title)) || Number(title) < 0 || Number(title) % 2 != 0) {
-                alert ('Title must be a integer');
-                return 0;
+            let errorString = "";
+            if (isNaN(Number(title)) || Number(title) < 0 || Math.ceil(Number(title)) !== Number(title)) {
+                errorString += 'Title must be a positive integer \n';
             }
-            else if (section === "") {
-                alert ('Section must not be empty');
+            if (section === "") {
+                errorString += 'Section must not be empty \n';
             }
-            else if (section.match(regex1) !== null) {
-                alert ('Section must not include any special characters');
-                return 0;
+            if (section.match(regex1) !== null) {
+                errorString += 'Section must not include any special characters \n';
             }
-            else if (code === "") {
-                alert ('Code must not be empty');
+            if (code === "") {
+                errorString += 'Code must not be empty \n';
             }
-            else if (code.match(regex2) !== null) {
-                alert ('Code must not include any special characters');
-                return 0;
+            if (code.match(regex2) !== null) {
+                errorString += 'Code must not include any special characters \n';
             }
-            else if (isNaN(Number(year)) || Number(year) % 2 != 0) {
-                alert ('Year must be a integer');
-                return 0;
+            if (isNaN(Number(year)) || Math.ceil(Number(year)) !== Number(year)) {
+                errorString += 'Year must be a positive integer \n';
             }
-            else if (!(1791 < Number(year) < 2020)) {
-                alert ('Year must be between 1791-2020');
-                return 0;
+            if (!(1791 < Number(year) < 2020)) {
+                errorString += 'Year must be between 1791-2020 \n';
             }
-            return 1;
+            if (errorString.length !== 0) {
+                alert(errorString);
+                return false;
+            }
+            return true;
         }
         
         function generateCitation(){
