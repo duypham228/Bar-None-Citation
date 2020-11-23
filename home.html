@@ -423,7 +423,7 @@
       }
 
       function validateSearch(search) {
-        let regex = /!([0-9]*[a-z]*[A-Z]*.*,*)/;
+        let regex = /[^a-zA-Z0-9\.,\ ]+/;
         if (search.match(regex) != NULL) {
           alert ('Case/Statute name must not include any special characters');
           return 0;

@@ -327,20 +327,20 @@
                       ["54", "U.S.C", "320201","NATIONAL MONUMENTS", "2014"]];
 
         function validateCitation(title, section, code, year) {
-            let regex1 = /!([0-9]*[a-z]*[A-Z]*(*)*)/;
-            let regex2 = /!([0-9]*[a-z]*[A-Z]*.*)/;
+            let regex1 = /[^a-zA-Z0-9\ \)\(]+/;
+            let regex2 = /[^a-zA-Z0-9\.,\ ]+/;
             if (!Number.isInteger(title)) {
                 alert ('Title must be a integer');
                 return 0;
             }
-            else if (section.isEmpty()) {
+            else if (section === "") {
                 alert ('Section must not be empty');
             }
             else if (section.match(regex1) != NULL) {
                 alert ('Section must not include any special characters');
                 return 0;
             }
-            else if (code.isEmpty()) {
+            else if (code === "") {
                 alert ('Code must not be empty');
             }
             else if (code.match(regex2) != NULL) {
