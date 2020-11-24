@@ -490,6 +490,8 @@
                 citation = citeCase(name, volume, reporter, page, year, style, court);
                 document.getElementById("citation").value = citation;
             }
+
+            google.script.run.insertCitation(citation);
         }
 
         function citeCase(name, vol, reporter, page, year, style, court){

@@ -151,3 +151,13 @@ function getRecentCitation(){
   Logger.log(citationList);
   return citationList;
 }
+
+function insertCitation(citation) {
+  var cursor = DocumentApp.getActiveDocument().getCursor();
+  if (cursor){
+    cursor.insertText(citation);
+  } else {
+    DocumentApp.getUI().alert('Cannot find cursor');
+  }
+
+}

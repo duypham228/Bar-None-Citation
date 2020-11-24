@@ -369,8 +369,10 @@
             var year = document.getElementById("year").value;
 
             if (validateCitation(title, sect, code, year)) {
-                document.getElementById("citation").value = citeStatutes(title, code, sect, year, style);
+                citation = citeStatutes(title, code, sect, year, style);
+                document.getElementById("citation").value = citation;
             }
+            google.script.run.insertCitation(citation);
         }
 
         function citeStatutes(title, code, sect, year, style){
