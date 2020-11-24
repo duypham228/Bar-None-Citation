@@ -371,8 +371,9 @@
             return true;
         }
         
+        var citation;
         function generateCitation(){
-            var citation;
+            
             //document.getElementById("testName").setAttribute("placeholder", result);
             var style = document.getElementById("sty").innerHTML.substr(7);
             var title = document.getElementById("title").value;
@@ -384,6 +385,10 @@
                 citation = citeStatutes(title, code, sect, year, style);
                 document.getElementById("citation").value = citation;
             }
+            
+        }
+
+        function insertCursor() {
             google.script.run.insertCitation(citation);
         }
 
@@ -438,7 +443,7 @@
                 <div class="bar-none-citations font-class-1">Bar None Citations</div>
                 <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
                 <input type="text" class="font-class-1" id="citation" placeholder="citation will go here...">
-                <input type="submit" class="insert-citation font-class-1" value="Insert at cursor location" onclick="">
+                <input type="submit" class="insert-citation font-class-1" value="Insert at cursor location" onclick="insertCursor()">
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
             <!------------------------Drop Down Menu-------------------------------------------------->
