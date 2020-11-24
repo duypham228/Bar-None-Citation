@@ -49,7 +49,7 @@
         width: 150px;
         }
         #citation {
-        bottom: -40px;
+        bottom: -35px;
         color: black;
         font-size: 15px;
         height: 22px;
@@ -59,6 +59,18 @@
         text-align: left;
         white-space: nowrap;
         width: 330px;
+        }
+        .insert-citation {
+        bottom: -80px;
+        color: black;
+        font-size: 15px;
+        height: 28px;
+        left: 85px;
+        line-height: 15px;
+        position: absolute;
+        text-align: left;
+        white-space: nowrap;
+        width: 175px;
         }
         .court-reporter {
         background-color: transparent;
@@ -603,6 +615,7 @@
             <div class="headerRectangle">
                 <div class="bar-none-citations font-class-1">Bar None Citations</div>
                 <div class="copy-paste-citation font-class-1">Copy &amp; Paste Citation:</div>
+                <input type="submit" class="insert-citation font-class-1" value="Insert at cursor location" onclick="">
                 <input type="text" class="font-class-1" id="citation" placeholder="citation will go here...">     
                 <img class="legal-icon" src="https://anima-uploads.s3.amazonaws.com/projects/5f981fab6395527a14058a31/releases/5f981fb2e901303153a036cc/img/legalicon-2@1x.png"/>
             </div>
